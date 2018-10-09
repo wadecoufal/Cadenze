@@ -3,13 +3,13 @@ import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import MainContent from './main_content/main_content';
-import SplashPage from './session/splash_page';
+import Splash from './session/splash';
 
 const App = () => (
   <div>
     <header>
     </header>
-    <AuthRoute path="/" component={SplashPage} />
+    <AuthRoute path="/" component={Splash} />
     <ProtectedRoute path="/" component={MainContent} />
   </div>
 );

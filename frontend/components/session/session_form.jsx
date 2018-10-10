@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
 
   render() {
     const submitButtonText = this.props.formType === "login" ? (
-      "Log In" ) : ( "Sign Up" )
+      "LOG IN" ) : ( "SIGN UP" )
 
     const emailField = this.props.formType === "signup" ? (
         <input type="text"
@@ -34,9 +34,9 @@ class SessionForm extends React.Component {
       )
 
     const linkToOther = this.props.formType === "login" ? (
-      <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+      <p>Don't have an account? <Link className="link" to="/signup">Sign Up</Link></p>
     ) : (
-      <p>Already have an account? <Link to="/login">Log In</Link></p>
+      <p>Already have an account? <Link className="link" to="/login">Log In</Link></p>
     )
 
     return (
@@ -50,12 +50,12 @@ class SessionForm extends React.Component {
           </div>
 
           <div className="session-form">
-            <div>
-              <button>DEMO LOGIN</button>
-              <div className='divider'></div>
-            </div>
 
             <form className="session-form"  onSubmit={this.handleSubmit}>
+              <button className="demo-login">DEMO LOGIN</button>
+              <div className='divider'><strong>OR</strong></div>
+
+
               {emailField}
 
               <input
@@ -75,6 +75,10 @@ class SessionForm extends React.Component {
             </form>
 
             {linkToOther}
+
+            <footer>If you would like to browse the site before creating an account,
+              just hit the <span>'Demo Login'</span> button! You'll still be able to
+            stream all your favorite music</footer>
           </div>
         </div>
 

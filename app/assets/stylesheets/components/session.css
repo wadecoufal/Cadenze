@@ -1,5 +1,4 @@
 .session {
-  background-color: pink;
   height: 850px;
 }
 
@@ -10,36 +9,111 @@
 .session .logo {
   display: flex;
   padding-top: 25px;
-  padding-bottom: 8px;
+  padding-bottom: 21px;
   border-bottom: 1px solid lightgray;
+  padding-top: 25px;
+  justify-content: center;
+  font-weight: 550;
+  font-size: 40px;
+  height: 61px;
+  margin-bottom: 20px;
 }
 
 .session img {
-  width: 67px;
-  height: 67px;
+  width: 61px;
+  height: 61px;
 }
 
 .logo h1 {
   padding-top: 13px;
+  letter-spacing: -3px;
   margin-left: 9px;
 }
-.session .logo {
-  font-family: Gotham, sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  color: black;
-  vertical-align: auto;
-  text-align: center;
-}
-
-
 
 .session-form {
   display: flex;
   flex-direction: column;
   margin: auto;
+  width: 450px;
+}
+
+.session-form input {
+  border: 1px solid lightgray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  height: 40px;
+  color: #222326;
+  margin: 6px 0px;
+  width: 430px;
+  padding-left: 20px;
+}
+
+::placeholder {
+  color: rgb(193, 195, 198);
+}
+
+.session-form button {
+  margin: 10px 0px;
+  width: 100%;
+
+  margin-top: 14px;
 }
 
 .session p {
   text-align: center;
+}
+
+.demo-login {
+  background-color: #3b5998;
+  width: 100%;
+}
+
+.demo-login:hover {
+  background-color: rgb(60, 89, 182);
+  transition-duration: .3s;
+}
+
+.session p {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.session .divider {
+  height: 1px;
+  background-color: lightgray;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  margin-bottom: 18px;
+}
+
+.divider strong {
+  z-index: 3;
+  background-color: white;
+  position: absolute;
+  top: -8px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.session .link {
+  color: #1db954;
+}
+
+.session footer {
+  width: 450px;
+  height: 65px;
+  font-size: 11px;
+  color: lightgray;
+  border-top: 1px solid lightgray;
+  margin-top: 60px;
+  padding-top: 15px;
+  font-weight: 500;
+}
+
+.session span {
+  color: #1db954;
 }

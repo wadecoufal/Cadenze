@@ -2,7 +2,12 @@ import React from 'react';
 
 class MainContent extends React.Component {
   render () {
-    return <h1>This is the MAIN COMPONENT</h1>
+    return (
+      <div>
+        <h1>This is the main component</h1>
+        <button onClick={this.props.logout} >Log Out</button>
+      </div>
+    )
   }
 }
 

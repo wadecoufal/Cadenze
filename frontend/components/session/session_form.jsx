@@ -50,17 +50,24 @@ class SessionForm extends React.Component {
     return (
       <div className="session">
         <div className="session-content">
+
           <div className="session-header">
-            <div className="logo">
-              <img src="/assets/Spotify_Icon_RGB_Black.png"></img>
-              <h1>Cadenze</h1>
-            </div>
+
+              <div className="logo">
+                <Link className="splash-page-link" to="/">
+                  <img src="/assets/Spotify_Icon_RGB_Black.png"></img>
+                </Link>
+                <Link className="splash-page-link" to="/">
+                  <h1>Cadenze</h1>
+                </Link>
+              </div>
+
           </div>
 
           <div className="session-form">
 
             <form className="session-form"  onSubmit={this.handleSubmit}>
-              <button className="demo-login">DEMO LOGIN</button>
+              <button type="button" className="demo-login">DEMO LOGIN</button>
               <div className='divider'><strong>OR</strong></div>
 
               {errors}
@@ -80,7 +87,7 @@ class SessionForm extends React.Component {
                 placeholder="Password">
               </input>
 
-              <button>{submitButtonText}</button>
+              <button type="subtmi" >{submitButtonText}</button>
             </form>
 
             {linkToOther}

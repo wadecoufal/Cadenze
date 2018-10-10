@@ -7,18 +7,35 @@ class SplashPage extends React.Component {
     return (
       <div className="splash-page">
         <header className="splash-header">
-          <p className="logo">Logo goes here</p>
+
+          <div className="logo">
+            <img src="/assets/Spotify_Icon_RGB_White.png"></img>
+            <h1>Cadenze</h1>
+          </div>
+
           <nav className="splash-session-buttons">
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Log In</Link>
+            <Link className="splash-session-link contact" to="">Github</Link>
+            <Link className="splash-session-link contact" to="">LinkedIn</Link>
+
+            <p className="separator">|</p>
+
+            <Link className="splash-session-link" to="/signup">Sign Up</Link>
+            <Link className="splash-session-link" to="/login">Log In</Link>
           </nav>
         </header>
 
         <main>
-          <h1>Music for Everyone</h1>
-          <h4>Millions of songs. No credit card needed.</h4>
-          <button>Demo Login</button>
+          <div className="splash-content">
+            <h1>Music for everyone.</h1>
+            <h4>Millions of songs. No credit card needed.</h4>
+            <button>DEMO LOGIN</button>
+          </div>
+
         </main>
+
+        <footer>
+        </footer>
+
       </div>
     )
   }

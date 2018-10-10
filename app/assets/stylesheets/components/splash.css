@@ -2,7 +2,7 @@
   background-image: linear-gradient(rgb(253, 80, 107), rgb(251, 153, 56));
   width: 100%;
   height: 850px;
-  font-family: Circular, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .splash-header {
@@ -13,12 +13,94 @@
   font-size: 16px;
   font-weight: 700;
   color: #D9DADC;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }
 
-.logo {
+.splash-page .logo {
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 28px;
+  height: 40px;
+  color: white;
+  margin-left: 65px;
+  margin-top: 18px;
+}
 
+.splash-page .logo img {
+  width: 40px;
+}
+
+.splash-page .logo h1 {
+  padding-top: 4px;
+  letter-spacing: -3px;
+  margin-left: 9px;
 }
 
 .splash-session-buttons {
+  margin-top: 28px;
+  margin-right: 65px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
 
+.splash-page .contact {
+  color: white;
+}
+
+.splash-session-link:hover {
+  color: #1ed760;
+}
+.splash-session-link {
+  padding: 0 20px;
+}
+
+.splash-page .separator {
+  font-weight: 100;
+}
+
+.splash-page main {
+  display: flex;
+  justify-content: center;
+}
+
+.splash-content {
+  margin-top: 200px;
+  align-items: center;
+}
+
+.splash-content h1, h4{
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.splash-content h1 {
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: -2;
+}
+
+.splash-content h4 {
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.splash-content button {
+  width: 27%;
+  height: 48px;
+  position: absolute;
+  left: 36.5%;
+  margin-top: 13px;
+}
+
+.splash-page footer {
+  margin-top: 250px;
+  display: block;
+  height: 275px;
+  background-color: black;
 }

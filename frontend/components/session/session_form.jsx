@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
 
               <div className="logo">
                 <Link className="splash-page-link" to="/">
-                  <img src="/assets/Spotify_Icon_RGB_Black.png"></img>
+                  <img src={window.blackLogoURL}></img>
                 </Link>
                 <Link className="splash-page-link" to="/">
                   <h1>Cadenze</h1>

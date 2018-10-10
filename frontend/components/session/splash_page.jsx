@@ -16,7 +16,7 @@ class SplashPage extends React.Component {
         <header className="splash-header">
 
           <div className="logo">
-            <img src="/assets/Spotify_Icon_RGB_White.png"></img>
+            <img src={window.whiteLogoURL}></img>
             <h1>Cadenze</h1>
           </div>
 
@@ -41,7 +41,7 @@ class SplashPage extends React.Component {
         </main>
 
         <footer>
-          
+
         </footer>
 
       </div>

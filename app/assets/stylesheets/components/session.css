@@ -117,3 +117,14 @@
 .session span {
   color: #1db954;
 }
+
+.session-errors {
+  width: 100%;
+  margin-bottom: 25px;
+  background-color: rgb(244, 144, 32);
+  color: white;
+  font-size: 11px;
+  text-align: center;
+  font-weight: 500;
+  padding: 16px 0px;
+}

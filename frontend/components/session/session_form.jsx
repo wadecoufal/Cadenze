@@ -33,6 +33,14 @@ class SessionForm extends React.Component {
         ""
       )
 
+    const errors = this.props.errors.length > 0 ? (
+      <ul className="session-errors">
+        {this.props.errors.map( error => {
+          return <li>{error}</li>
+        })}
+      </ul>
+    ) : ("")
+
     const linkToOther = this.props.formType === "login" ? (
       <p>Don't have an account? <Link className="link" to="/signup">Sign Up</Link></p>
     ) : (
@@ -55,6 +63,7 @@ class SessionForm extends React.Component {
               <button className="demo-login">DEMO LOGIN</button>
               <div className='divider'><strong>OR</strong></div>
 
+              {errors}
 
               {emailField}
 

@@ -40,3 +40,15 @@ export const logout = () => dispatch => {
   return SessionApiUtil.logout()
     .then( () => dispatch(logoutCurrentUser()))
 };
+
+export const demoLogin = () => dispatch => {
+  const demoUserNumber = Math.floor(Math.random() * 10);
+  const demoUsername = `Guest${demoUserNumber}`;
+  const demoPassword = `password${demoUserNumber}`;
+
+  const user = {username: demoUsername, password: demoPassword};
+
+  return SessionApiUtil.login(user)
+    .then(user => dispatch(receiveCurrentUser(user)),
+          err => dispatch(receiveSigninErrors(err.responseJSON)));
+};

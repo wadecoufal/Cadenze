@@ -67,7 +67,10 @@ class SessionForm extends React.Component {
           <div className="session-form">
 
             <form className="session-form"  onSubmit={this.handleSubmit}>
-              <button type="button" className="demo-login">DEMO LOGIN</button>
+              <button type="button"
+                className="demo-login"
+                onClick={this.props.demoLogin}
+                >DEMO LOGIN</button>
               <div className='divider'><strong>OR</strong></div>
 
               {errors}
@@ -87,7 +90,7 @@ class SessionForm extends React.Component {
                 placeholder="Password">
               </input>
 
-              <button type="subtmi" >{submitButtonText}</button>
+              <button type="submit" >{submitButtonText}</button>
             </form>
 
             {linkToOther}

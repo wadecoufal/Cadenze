@@ -1,5 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { login, demoLogin } from '../../actions/session_actions'
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => ({
+  demoLogin: () => dispatch(demoLogin())
+})
 
 class SplashPage extends React.Component {
 
@@ -28,7 +34,7 @@ class SplashPage extends React.Component {
           <div className="splash-content">
             <h1>Music for everyone.</h1>
             <h4>Millions of songs. No credit card needed.</h4>
-            <button>DEMO LOGIN</button>
+            <button onClick={this.props.demoLogin}>DEMO LOGIN</button>
           </div>
 
         </main>
@@ -42,4 +48,4 @@ class SplashPage extends React.Component {
 
 }
 
-export default SplashPage;
+export default connect(null, mapDispatchToProps)(SplashPage);

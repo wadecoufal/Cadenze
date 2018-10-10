@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import MainContentContainer from './main_content/main_content_container';
@@ -9,6 +9,7 @@ const App = () => (
   <div>
     <header>
     </header>
+
     <AuthRoute path="/" component={Splash} />
     <ProtectedRoute path="/" component={MainContentContainer} />
   </div>

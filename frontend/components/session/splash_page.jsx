@@ -12,6 +12,7 @@ class SplashPage extends React.Component {
   render() {
     return (
       <div className="splash-page">
+
         <header className="splash-header">
 
           <div className="logo">
@@ -40,6 +41,7 @@ class SplashPage extends React.Component {
         </main>
 
         <footer>
+          
         </footer>
 
       </div>

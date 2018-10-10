@@ -1,0 +1,45 @@
+.session {
+  background-color: pink;
+  height: 850px;
+}
+
+.session-content {
+  margin: auto;
+}
+
+.session .logo {
+  display: flex;
+  padding-top: 25px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid lightgray;
+}
+
+.session img {
+  width: 67px;
+  height: 67px;
+}
+
+.logo h1 {
+  padding-top: 13px;
+  margin-left: 9px;
+}
+.session .logo {
+  font-family: Gotham, sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: black;
+  vertical-align: auto;
+  text-align: center;
+}
+
+
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.session p {
+  text-align: center;
+}

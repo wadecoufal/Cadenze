@@ -12,7 +12,6 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     this.props.action(this.state).then(() => this.props.history.push('/browse'));
   }
 

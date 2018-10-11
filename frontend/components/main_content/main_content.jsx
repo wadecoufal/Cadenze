@@ -13,9 +13,9 @@ class MainContent extends React.Component {
     return (
       <div className="main-content">
 
-        <Route to="/browse" component={Browse} />
-        <Route to="/search" component={Search} />
-        <Route to="/collection" component={Collection} />
+        <Route path="/browse" component={Browse} />
+        <Route path="/search" component={Search} />
+        <Route path="/collection" component={Collection} />
 
 
         <button className="logout" onClick={this.props.logout}>Log Out</button>

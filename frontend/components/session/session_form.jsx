@@ -7,17 +7,24 @@ class SessionForm extends React.Component {
     super(props);
     this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
+    debugger;
+    this.props.action(this.state).then(() => this.props.history.push('/browse'));
   }
 
   handleChange(type) {
     return (e) => {
       this.setState({[type]: e.target.value})
     }
+  }
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    this.props.demoLogin().then( () => this.props.history.push('/browse'));
   }
 
   render() {
@@ -76,7 +83,7 @@ class SessionForm extends React.Component {
             <form className="session-form"  onSubmit={this.handleSubmit}>
               <button type="button"
                 className="demo-login"
-                onClick={this.props.demoLogin}
+                onClick={this.handleDemoLogin}
                 >DEMO LOGIN</button>
               <div className='divider'><strong>OR</strong></div>
 

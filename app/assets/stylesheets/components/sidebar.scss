@@ -21,16 +21,26 @@
   justify-content: space-between;
   width: 172px;
   height: 144px;
+  color: rgb(155, 155, 155);
 }
 
 .sidebar-links .link {
   height: 33px;
   padding-top: 10px;
   padding-bottom: 5px;
-  color: rgb(155, 155, 155);
+
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 900;
+}
+
+.active-sidebar-link {
+  color: rgb(20, 186, 92);
+}
+
+.sidebar-links .link:hover {
+  color: white;
+  transition: 0.3s;
 }
 
 .sidebar .logo img {

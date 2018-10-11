@@ -28,9 +28,9 @@ class Sidebar extends React.Component {
 
 
         <ul className="sidebar-links">
-          <NavLink className="link" to="/search/results">Search</NavLink>
-          <NavLink className="link" to="/browse/featured">Home</NavLink>
-          <NavLink className="link" to="/collection/playlists">Your Library</NavLink>
+          <NavLink className="link" activeClassName="active-sidebar-link" to="/search">Search</NavLink>
+          <NavLink activeClassName="active-sidebar-link" className="link" to="/browse">Home</NavLink>
+          <NavLink activeClassName="active-sidebar-link" className="link" to="/collection">Your Library</NavLink>
         </ul>
 
 

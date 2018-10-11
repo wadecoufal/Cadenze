@@ -1,5 +1,8 @@
-.main-content .logout {
+.main-content {
+  background-image: linear-gradient(rgb(41, 44, 44), rgb(9, 10, 10));
   position: absolute;
   right: 0;
   top: 0;
+  bottom: 90px;
+  left: 220px;
 }

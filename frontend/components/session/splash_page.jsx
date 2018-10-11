@@ -41,7 +41,14 @@ class SplashPage extends React.Component {
         </main>
 
         <footer>
+          <div className="footer-div">
+            <div className="logo">
+              <img src={window.whiteLogoURL}></img>
+              <h1>Cadenze</h1>
+            </div>
 
+
+          </div>
         </footer>
 
       </div>

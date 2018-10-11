@@ -42,9 +42,16 @@ class SessionForm extends React.Component {
     ) : ("")
 
     const linkToOther = this.props.formType === "login" ? (
-      <p>Don't have an account? <Link className="link" to="/signup">Sign Up</Link></p>
+      <p>Don't have an account? <Link
+        className="link" to="/signup"
+        onClick={this.props.clearErrors}
+        >Sign Up</Link></p>
     ) : (
-      <p>Already have an account? <Link className="link" to="/login">Log In</Link></p>
+      <p>Already have an account? <Link
+        className="link"
+        to="/login"
+        onClick={this.props.clearErrors}
+        >Log In</Link></p>
     )
 
     return (

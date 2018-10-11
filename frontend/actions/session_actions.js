@@ -24,6 +24,10 @@ const receiveSignupErrors = (errors) => ({
   errors
 })
 
+export const clearErrors = () => ({
+  type: "CLEAR_ERRORS"
+})
+
 export const signup = user => dispatch => {
   return SessionApiUtil.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)),

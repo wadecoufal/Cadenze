@@ -16,12 +16,14 @@ class User < ApplicationRecord
 
   # error message for password_digest comes up as "Password digest Password can't be blank"
   validates :password_digest, presence: {message: "Password can't be blank"}
-  
+
   validates :username, :session_token, :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
   after_initialize :ensure_session_token
   attr_reader :password
+
+  has_one_attached :photo
 
   def password=(password)
     @password = password

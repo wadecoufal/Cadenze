@@ -7,7 +7,6 @@ class Browse extends React.Component {
       <div className="browse">
         <div className="browse-content">
 
-          
 
         </div>
       </div>

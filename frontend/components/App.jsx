@@ -7,7 +7,7 @@ import Splash from './session/splash';
 import Sidebar from './navbars/sidebar';
 import MusicPlayer from './music_player/music_player';
 
-const App = () => (
+const App = (props) => (
   <div>
     <header>
     </header>

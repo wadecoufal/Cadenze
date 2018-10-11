@@ -6,16 +6,18 @@ import Browse from './browse';
 import Search from './search';
 import Collection from './collection';
 
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class MainContent extends React.Component {
   render () {
     return (
       <div className="main-content">
-
-        <Route path="/browse" component={Browse} />
-        <Route path="/search" component={Search} />
-        <Route path="/collection" component={Collection} />
+        <Switch>
+          <Route path="/browse" component={Browse} />
+          <Route path="/search" component={Search} />
+          <Route path="/collection" component={Collection} />
+          <Redirect to="/browse/featured" />
+        </Switch>
 
 
         <button className="logout" onClick={this.props.logout}>Log Out</button>

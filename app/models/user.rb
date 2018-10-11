@@ -51,7 +51,7 @@ class User < ApplicationRecord
 
   def ensure_photo
     unless self.photo.attached?
-      self.photo.attach(io: File.open('app/assets/images/Spotify_Icon_RGB_Black.png'), filename: 'spotlogo')
+      self.photo.attach(io: File.open('app/assets/images/Spotify_Icon_RGB_White.png'), filename: 'spotlogo')
     end
   end
 

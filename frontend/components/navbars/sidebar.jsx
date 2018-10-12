@@ -1,9 +1,14 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
   currUser: state.entities.users[state.session.id]
+});
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(logout())
 });
 
 class Sidebar extends React.Component {
@@ -38,6 +43,7 @@ class Sidebar extends React.Component {
         <div className="user-tag">
           <img className="user-img" src={this.props.currUser.photoUrl}></img>
           <h5>{this.props.currUser.username}</h5>
+          <button className="sidebar-logout" onClick={this.props.logout}>Log Out</button>
         </div>
 
       </div>
@@ -46,4 +52,4 @@ class Sidebar extends React.Component {
 
 }
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

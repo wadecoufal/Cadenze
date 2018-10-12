@@ -13,14 +13,12 @@ class MainContent extends React.Component {
   render () {
     return (
       <div id="main-content">
-
         <Switch>
           <Route path="/browse" component={Browse} />
           <Route path="/search" component={Search} />
           <Route path="/collection" component={Collection} />
           <Redirect to="/browse/albums" />
         </Switch>
-        <button className="logout" onClick={this.props.logout}>Log Out</button>
       </div>
     )
   }

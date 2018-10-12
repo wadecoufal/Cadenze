@@ -3,7 +3,7 @@
   left: 0;
   top: 0;
   bottom: 90px;
-  background-color: rgb(4, 5, 5);
+  background-color: rgba(4, 5, 5, 0.7);
   width: 172px;
   padding: 24px;
   color: white;
@@ -66,4 +66,14 @@
   width: 40px;
   height: 40px;
   margin-right: 6px;
+}
+
+.sidebar-logout {
+  padding-top: 15px;
+  padding-left: 26px;
+  background-color: transparent;
+}
+
+.sidebar-logout:hover {
+  background-color: transparent;
 }

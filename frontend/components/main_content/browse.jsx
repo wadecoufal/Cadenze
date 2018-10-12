@@ -3,9 +3,9 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from '../navbars/navbar';
 
 import AlbumsIndexContainer from '../albums/albums_index_container';
-import ArtistsIndexContainer from '../albums/albums_index_container';
-import PlaylistsIndexContainer from '../albums/albums_index_container';
-import SongsIndexContainer from '../albums/albums_index_container';
+import ArtistsIndexContainer from '../artists/artists_index_container';
+import PlaylistsIndexContainer from '../playlists/playlists_index_container';
+import SongsIndexContainer from '../songs/songs_index_container';
 
 class Browse extends React.Component {
 

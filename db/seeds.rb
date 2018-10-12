@@ -18,7 +18,7 @@
 #   {username: 'Guest9', password: 'password9', email: 'guest9@guest.com'},
 #   {username: 'Guest10', password: 'password10', email: 'guest10@guest.com'}
 #   ])
-Album.destroy_all
+Song.destroy_all
 
 def create_album(params, image_url, filename)
   album = Album.new(params)
@@ -26,6 +26,40 @@ def create_album(params, image_url, filename)
   album.photo.attach(io: file, filename: filename)
   album.save
 end
+
+# need to add song_url, filename once song storage is determined
+def create_song(params)
+  song = Song.new(params)
+
+  song.save!
+end
+
+create_album({
+    title: 'The Rite of Spring',
+    year: 1980,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/bernstein2.jpg',
+    'bernstein2.jpg'
+)
+
+create_song({title: 'Introduction',album_id: 71,duration: 129})
+create_song({title: 'Les Augures printaniers',album_id: 71,duration: 229})
+create_song({title: 'Jeu du rapt',album_id: 71,duration: 312})
+create_song({title: 'Rondes printanières',album_id: 71,duration: 124})
+create_song({title: 'Jeux des cités rivales',album_id: 71,duration: 229})
+create_song({title: 'Cortège du sage: Le Sage',album_id: 71,duration: 429})
+create_song({title: 'Danse de la terre',album_id: 71,duration: 529})
+create_song({title: 'Part II: Introduction',album_id: 71,duration: 229})
+create_song({title: 'Cercles mystérieux des adolescentes',album_id: 71,duration: 119})
+create_song({title: 'Glorification de l\'élue',album_id: 71,duration: 139})
+create_song({title: 'Évocation des ancêtres',album_id: 71,duration: 129})
+create_song({title: 'Action rituelle des ancêtres',album_id: 71,duration: 432})
+create_song({title: 'Danse sacrale',album_id: 71,duration: 329})
+
+
+
 
 
 create_album({
@@ -101,15 +135,7 @@ create_album({
     '../album_covers/tchaikovsky.jpg',
     'tchaikovsky.jpg'
 )
-create_album({
-    title: 'The Rite of Spring',
-    year: 1980,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/bernstein2.jpg',
-    'bernstein2.jpg'
-)
+
 create_album({
     title: 'The Rite of Spring',
     year: 2003,

@@ -23,6 +23,7 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token, :ensure_photo
   attr_reader :password
 
+  has_many :playlists
   has_one_attached :photo
 
   def password=(password)

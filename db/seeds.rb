@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+
 User.create([
   {username: 'Guest1', password: 'password1', email: 'guest1@guest.com'},
   {username: 'Guest2', password: 'password2', email: 'guest2@guest.com'},
@@ -18,3 +20,21 @@ User.create([
   {username: 'Guest9', password: 'password9', email: 'guest9@guest.com'},
   {username: 'Guest10', password: 'password10', email: 'guest10@guest.com'}
   ])
+
+
+def create_album(params, image_url, filename)
+  album = Album.new(params)
+  file = File.open(image_url)
+  album.photo.attach(io: file, filename: filename)
+  album.save
+end
+
+
+album = Album.new({title: 'The Rite of Spring',
+  year: 1988, genre: 'Classical', artist_id: 1})
+
+file = File.open("https://s3.amazonaws.com/cadenze-dev/bernstein2.jpg")
+album.photo.attach(io: file, filename: 'bernstein2.jpg')
+album.save
+
+file = File.open('../album_covers/a2014818508_10.jpg')

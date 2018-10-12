@@ -7,3 +7,9 @@
   left: 220px;
   padding: 32px;
 }
+
+.main-content .logout {
+  position: absolute;
+  right: 15px;
+  bottom: 105px;
+}

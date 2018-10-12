@@ -20,6 +20,7 @@ class MainContent extends React.Component {
           <Route path="/collection" component={Collection} />
           <Redirect to="/browse/albums" />
         </Switch>
+        <button className="logout" onClick={this.props.logout}>Log Out</button>
       </div>
     )
   }

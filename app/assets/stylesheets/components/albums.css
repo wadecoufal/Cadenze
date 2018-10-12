@@ -1,4 +1,44 @@
+.albums-index {
+  overflow-y: scroll;
+  position: absolute;
+  height: 100%;
+  top: 150px;
+}
+
+.album-rows {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-index-item {
+  width: 192px;
+  padding: 0 8px;
+  font-family: 'Helvetica Neue', serif;
+  color: white;
+  font-weight: 400;
+  letter-spacing: .015em;
+  text-align: center;
+}
+
 .album-img {
-  width: 300px;
-  height: 300px;
+  width: 192px;
+  height: 192px;
+}
+
+.album-title {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  height: 20px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.album-artist {
+  height: 20px;
+  width: 100%;
+  padding-bottom: 35px;
+  font-size: 14px;
+  font-weight: 300;
+  color: hsla(0, 0%, 100%, .6);
 }

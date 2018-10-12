@@ -17,10 +17,6 @@ span, article, footer, time, small {
   font-family: 'Montserrat', sans-serif;
 }
 
-html, body, .root, .splash-page {
-  min-height: 100%;
-}
-
 ul {
   list-style: none;
 }

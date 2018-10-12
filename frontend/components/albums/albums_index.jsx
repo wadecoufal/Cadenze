@@ -13,12 +13,13 @@ class AlbumsIndex extends React.Component {
   render() {
 
     const albums = this.props.albums ? (
-      <ul>
+      <ul className="album-rows" >
         {this.props.albums.map( album => {
           return (
-            <div>
-              <h3>{album.title}</h3>
+            <div className="album-index-item">
               <img className="album-img" src={album.photoUrl}></img>
+              <h3 className="album-title">{album.title}</h3>
+              <h3 className="album-artist">{album.artist.name}</h3>
             </div>
           )
         })}

@@ -1,0 +1,21 @@
+.songs-index {
+  overflow-y: scroll;
+  position: absolute;
+  height: 100%;
+  width: 95%;
+  // top: 150px;
+}
+
+.song-index-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title-duration {
+  display: flex;
+  justify-content: space-between;
+}
+
+.song-artist-album {
+  display:flex;
+}

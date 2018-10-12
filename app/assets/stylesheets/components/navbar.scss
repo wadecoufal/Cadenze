@@ -1,7 +1,7 @@
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  position: static;
+  position: sticky;
 }
 
 .nav-bar .link {

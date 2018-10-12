@@ -18,7 +18,10 @@
 #   {username: 'Guest9', password: 'password9', email: 'guest9@guest.com'},
 #   {username: 'Guest10', password: 'password10', email: 'guest10@guest.com'}
 #   ])
+Album.destroy_all
 Song.destroy_all
+Artist.destroy_all
+User.destroy_all
 
 def create_album(params, image_url, filename)
   album = Album.new(params)
@@ -27,12 +30,37 @@ def create_album(params, image_url, filename)
   album.save
 end
 
-# need to add song_url, filename once song storage is determined
+# need to add song_url/filename once song storage is determined
 def create_song(params)
   song = Song.new(params)
 
-  song.save!
+  song.save
 end
+
+# need to add image_url/filename once I get artist images in my bucket
+def create_artist(params)
+  artist = Artist.new(params)
+  artist.save
+end
+
+User.create([
+  {username: 'Guest1', password: 'password1', email: 'guest1@guest.com'},
+  {username: 'Guest2', password: 'password2', email: 'guest2@guest.com'},
+  {username: 'Guest3', password: 'password3', email: 'guest3@guest.com'},
+  {username: 'Guest4', password: 'password4', email: 'guest4@guest.com'},
+  {username: 'Guest5', password: 'password5', email: 'guest5@guest.com'},
+  {username: 'Guest6', password: 'password6', email: 'guest6@guest.com'},
+  {username: 'Guest7', password: 'password7', email: 'guest7@guest.com'},
+  {username: 'Guest8', password: 'password8', email: 'guest8@guest.com'},
+  {username: 'Guest9', password: 'password9', email: 'guest9@guest.com'},
+  {username: 'Guest10', password: 'password10', email: 'guest10@guest.com'}
+  ])
+
+
+create_artist({
+  name: 'Leonard Bernstein',
+  bio: 'Great Conductor'
+})
 
 create_album({
     title: 'The Rite of Spring',
@@ -44,23 +72,19 @@ create_album({
     'bernstein2.jpg'
 )
 
-create_song({title: 'Introduction',album_id: 71,duration: 129})
-create_song({title: 'Les Augures printaniers',album_id: 71,duration: 229})
-create_song({title: 'Jeu du rapt',album_id: 71,duration: 312})
-create_song({title: 'Rondes printanières',album_id: 71,duration: 124})
-create_song({title: 'Jeux des cités rivales',album_id: 71,duration: 229})
-create_song({title: 'Cortège du sage: Le Sage',album_id: 71,duration: 429})
-create_song({title: 'Danse de la terre',album_id: 71,duration: 529})
-create_song({title: 'Part II: Introduction',album_id: 71,duration: 229})
-create_song({title: 'Cercles mystérieux des adolescentes',album_id: 71,duration: 119})
-create_song({title: 'Glorification de l\'élue',album_id: 71,duration: 139})
-create_song({title: 'Évocation des ancêtres',album_id: 71,duration: 129})
-create_song({title: 'Action rituelle des ancêtres',album_id: 71,duration: 432})
-create_song({title: 'Danse sacrale',album_id: 71,duration: 329})
-
-
-
-
+create_song({title: 'Introduction',album_id: 1,duration: 129})
+create_song({title: 'Les Augures printaniers',album_id: 1,duration: 229})
+create_song({title: 'Jeu du rapt',album_id: 1,duration: 312})
+create_song({title: 'Rondes printanières',album_id: 1,duration: 124})
+create_song({title: 'Jeux des cités rivales',album_id: 1,duration: 229})
+create_song({title: 'Cortège du sage: Le Sage',album_id: 1,duration: 429})
+create_song({title: 'Danse de la terre',album_id: 1,duration: 529})
+create_song({title: 'Part II: Introduction',album_id: 1,duration: 229})
+create_song({title: 'Cercles mystérieux des adolescentes',album_id: 1,duration: 119})
+create_song({title: 'Glorification de l\'élue',album_id: 1,duration: 139})
+create_song({title: 'Évocation des ancêtres',album_id: 1,duration: 129})
+create_song({title: 'Action rituelle des ancêtres',album_id: 1,duration: 432})
+create_song({title: 'Danse sacrale',album_id: 1,duration: 329})
 
 create_album({
     title: 'Stravinsky Stokowski',

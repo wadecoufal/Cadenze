@@ -8,6 +8,9 @@ class AlbumsIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchAlbums();
+    document.getElementById('main-content').style.backgroundImage =
+      'linear-gradient(rgb(41, 44, 44), rgb(9, 10, 10))'
+
   }
 
   render() {

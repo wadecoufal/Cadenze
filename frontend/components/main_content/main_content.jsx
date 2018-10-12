@@ -12,7 +12,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 class MainContent extends React.Component {
   render () {
     return (
-      <div className="main-content">
+      <div id="main-content">
 
         <Switch>
           <Route path="/browse" component={Browse} />

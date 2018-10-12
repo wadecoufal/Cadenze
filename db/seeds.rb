@@ -101,3 +101,112 @@ create_album({
     '../album_covers/tchaikovsky.jpg',
     'tchaikovsky.jpg'
 )
+create_album({
+    title: 'The Rite of Spring',
+    year: 1980,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/bernstein2.jpg',
+    'bernstein2.jpg'
+)
+create_album({
+    title: 'The Rite of Spring',
+    year: 2003,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/a2014818508_10.jpg',
+    'a2014818508_10.jpg'
+)
+create_album({
+    title: 'Stravinsky Stokowski',
+    year: 2016,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/field4_550x550.jpg',
+    'field4_550x550.jpg'
+)
+
+create_album({
+    title: 'Mozart Piano Concerto 11 & 22',
+    year: 1980,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/02_classical_covers_2_A.png',
+    '02_classical_covers_2_A.png'
+)
+create_album({
+    title: 'Mozart 5, Vieuxtemps 4',
+    year: 2014,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/71edpE8WPVL._SX522_.jpg',
+    '71edpE8WPVL._SX522_.jpg'
+)
+create_album({
+    title: 'Anders Koppel String Quartet',
+    year: 2018,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/Anders-Koppel-String-Quartets.jpg',
+    'Anders-Koppel-String-Quartets.jpg'
+)
+create_album({
+    title: 'Bartok & Stravinsky',
+    year: 2016,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/Bartok-Stravinsky.jpg',
+    'Bartok-Stravinsky.jpg'
+)
+create_album({
+    title: 'Dances & Rhapsodies',
+    year: 2016,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/Concert Hal letslookupandsmile fl.jpg',
+    'Concert Hal letslookupandsmile fl.jpg'
+)
+create_album({
+    title: 'Tavole per Orfeo',
+    year: 2016,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/tavole.png',
+    'tavole.png'
+)
+create_album({
+    title: 'Pathetique',
+    year: 1976,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/tchaikovsky.jpg',
+    'tchaikovsky.jpg'
+)
+create_album({
+    title: 'The Rite of Spring',
+    year: 1980,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/bernstein2.jpg',
+    'bernstein2.jpg'
+)
+create_album({
+    title: 'The Rite of Spring',
+    year: 2003,
+    genre: 'Classical',
+    artist_id: 1
+    },
+    '../album_covers/a2014818508_10.jpg',
+    'a2014818508_10.jpg'
+)

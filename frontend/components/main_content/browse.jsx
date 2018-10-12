@@ -1,15 +1,27 @@
 import React from 'react';
-import NavBar from '../navbars/navbar';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Navbar from '../navbars/navbar';
+
+import AlbumsIndexContainer from '../albums/albums_index_container';
+import ArtistsIndexContainer from '../albums/albums_index_container';
+import PlaylistsIndexContainer from '../albums/albums_index_container';
+import SongsIndexContainer from '../albums/albums_index_container';
 
 class Browse extends React.Component {
 
   render() {
-    const page = 'page';
+    const page = 'browse';
 
     return (
       <div className="browse">
-        <div className="browse-content">
-        </div>
+        <Navbar page={page} />
+        <Switch>
+          <Route path="/browse/albums" component={AlbumsIndexContainer} />
+          <Route path="/browse/artists" component={ArtistsIndexContainer} />
+          <Route path="/browse/playlists" component={PlaylistsIndexContainer} />
+          <Route path="/browse/songs" component={SongsIndexContainer} />
+          <Redirect to="/browse/albums" />
+        </Switch>
       </div>
     )
   }

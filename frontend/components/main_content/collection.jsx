@@ -1,14 +1,27 @@
 import React from 'react';
-import NavBar from '../navbars/navbar';
+import Navbar from '../navbars/navbar';
+import { Route, Redirect, Switch } from 'react-router-dom';
+
+import AlbumsIndexContainer from '../albums/albums_index_container';
+import ArtistsIndexContainer from '../albums/albums_index_container';
+import PlaylistsIndexContainer from '../albums/albums_index_container';
+import SongsIndexContainer from '../albums/albums_index_container';
 
 class Collection extends React.Component {
 
   render() {
-    const page = 'page';
+    const page = 'collection';
 
     return (
       <div className="collection">
-        <h1>This is the Collection component</h1>
+        <Navbar page={page} />
+        <Switch>
+          <Route path="/collection/albums" component={AlbumsIndexContainer} />
+          <Route path="/collection/artists" component={ArtistsIndexContainer} />
+          <Route path="/collection/playlists" component={PlaylistsIndexContainer} />
+          <Route path="/collection/songs" component={SongsIndexContainer} />
+          <Redirect to="/collection/albums" />
+        </Switch>
       </div>
     )
   }

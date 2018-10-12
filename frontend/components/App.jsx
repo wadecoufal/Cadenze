@@ -6,6 +6,7 @@ import MainContentContainer from './main_content/main_content_container';
 import Splash from './session/splash';
 import Sidebar from './navbars/sidebar';
 import MusicPlayer from './music_player/music_player';
+import Navbar from './navbars/navbar';
 
 const App = (props) => (
   <div>

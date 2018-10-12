@@ -1,18 +1,40 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-class NavBar extends React.Component {
+class Navbar extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
 
   render() {
 
     return (
       <ul className="nav-bar">
 
-        <NavLink className="link" activeClassName="active-nav-link" to="/browse/ablums">ALBUMS</NavLink>
-        <NavLink className="link" activeClassName="active-nav-link" to="/browse/artists">ARTISTS</NavLink>
-        <NavLink className="link" activeClassName="active-nav-link" to="/browse/playlists">PLAYLISTS</NavLink>
-        <NavLink className="link" activeClassName="active-nav-link" to="/browse/songs">SONGS</NavLink>
+        <NavLink
+          className="link"
+          activeClassName="active-nav-link"
+          to={`/${this.props.page}/albums`}
+        >ALBUMS</NavLink>
+
+        <NavLink
+          className="link"
+          activeClassName="active-nav-link"
+          to={`/${this.props.page}/artists`}
+        >ARTISTS</NavLink>
+
+        <NavLink
+          className="link"
+          activeClassName="active-nav-link"
+          to={`/${this.props.page}/playlists`}
+        >PLAYLISTS</NavLink>
+
+        <NavLink
+          className="link"
+          activeClassName="active-nav-link"
+          to={`/${this.props.page}/songs`}
+        >SONGS</NavLink>
 
       </ul>
     )
@@ -20,4 +42,4 @@ class NavBar extends React.Component {
 
 }
 
-export default NavBar;
+export default Navbar;

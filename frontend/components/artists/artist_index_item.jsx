@@ -12,7 +12,10 @@ class ArtistIndexItem extends React.Component {
 
     return (
       <div className="artist-index-item">
+
         <img className='artist-img' src={artist.photoUrl}></img>
+
+
         <h3 className='artist-name'>{artist.name}</h3>
       </div>
     )

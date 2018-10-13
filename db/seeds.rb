@@ -74,7 +74,7 @@ create_artist({ name: 'Igor Stravinsky', bio: 'Russian Composer'}, 'stravinsky.j
 create_artist({ name: 'Lang Lang', bio: 'Pianist'}, 'lang_lang.jpg')
 create_artist({ name: 'George Walker', bio: 'Composer'}, 'george_walker.jpg')
 create_artist({ name: 'Philip Glass', bio: 'Composer'}, 'glass.jpg')
-create_artist({ name: 'Johannes Brahms', bio: 'Composer'}, 'brahms.jpeg')
+# create_artist({ name: 'Johannes Brahms', bio: 'Composer'}, 'brahms.jpeg')
 
 create_artist({  name: 'Leonard Bernstein', bio: 'Great Conductor'}, 'bernstein.jpg')
 create_artist({ name: 'Jacqueline du Pré', bio: 'French Cellist'}, 'jacqueline-du-pre.jpg')
@@ -90,7 +90,7 @@ create_artist({ name: 'Igor Stravinsky', bio: 'Russian Composer'}, 'stravinsky.j
 create_artist({ name: 'Lang Lang', bio: 'Pianist'}, 'lang_lang.jpg')
 create_artist({ name: 'George Walker', bio: 'Composer'}, 'george_walker.jpg')
 create_artist({ name: 'Philip Glass', bio: 'Composer'}, 'glass.jpg')
-create_artist({ name: 'Johannes Brahms', bio: 'Composer'}, 'brahms.jpeg')
+# create_artist({ name: 'Johannes Brahms', bio: 'Composer'}, 'brahms.jpeg')
 
 create_album({title: 'The Rite of Spring', year: 1980, genre: 'Classical', artist_id: 1}, 'rite_of_spring.jpg')
 create_album({title: 'Mozart Piano Concerti', year: 1972, genre: 'Classical', artist_id: 12}, 'mozart_piano.png')

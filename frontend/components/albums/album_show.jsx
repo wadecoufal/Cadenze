@@ -1,17 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import SongsIndexContainer from '../songs/songs_index_container';
+import { fetchAlbums } from '../../actions/album_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  album: state.entities.albums[ownProps.match.params.albumId - 1]
-});
+const mapStateToProps = (state, ownProps) => {
+  return {album: state.entities.albums[ownProps.match.params.albumId - 1]}
+};
+
+const mapDispatchToProps = dispatch => ({
+  fetchAlbums: () => dispatch(fetchAlbums())
+})
 
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.album;
+  }
+
+  componentDidMount() {
+    this.props.fetchAlbums();
   }
 
   render() {
+
     const album = this.props.album ? (
       <div className="album-show">
         <div className="album-img-info">
@@ -37,4 +49,4 @@ class AlbumShow extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(AlbumShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AlbumShow));

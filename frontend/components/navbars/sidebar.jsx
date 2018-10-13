@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 
@@ -52,4 +52,4 @@ class Sidebar extends React.Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Sidebar));

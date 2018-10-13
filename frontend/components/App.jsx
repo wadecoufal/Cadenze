@@ -8,14 +8,18 @@ import Sidebar from './navbars/sidebar';
 import MusicPlayer from './music_player/music_player';
 import Navbar from './navbars/navbar';
 
-const App = (props) => (
-  <div className="page">
-    <header>
-    </header>
-
-    <AuthRoute path="/" component={Splash} />
+const App = (props) => {
+  const splashOrMainRender = Boolean(props.store.getState().session.id) ? (
     <ProtectedRoute path="/" component={MainContentContainer} />
-  </div>
-);
+  ) : (
+    <AuthRoute path="/" component={Splash} />
+  )
+
+  return (
+    <div className="page">
+      {splashOrMainRender}
+    </div>
+  )
+};
 
 export default App;

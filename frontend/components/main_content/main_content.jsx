@@ -18,13 +18,16 @@ class MainContent extends React.Component {
         <div id="main-content-2">
           <Sidebar />
 
-          <Switch>
-            <Route path="/browse" component={Browse} />
-            <Route path="/search" component={Search} />
-            <Route path="/collection" component={Collection} />
-            <Route path="/album/:albumId" component={AlbumShow} />
-            <Redirect to="/browse/albums" />
-          </Switch>
+          <div className="feature-content" >
+            <Switch>
+              <Route path="/browse" component={Browse} />
+              <Route path="/search" component={Search} />
+              <Route path="/collection" component={Collection} />
+              <Route path="/album/:albumId" component={AlbumShow} />
+              <Redirect to="/browse/albums" />
+            </Switch>
+          </div>
+
         </div>
 
         <MusicPlayer />

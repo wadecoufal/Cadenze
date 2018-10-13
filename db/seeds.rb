@@ -23,24 +23,27 @@ Song.destroy_all
 Artist.destroy_all
 User.destroy_all
 
-def create_album(params, image_url, filename)
+def create_album(params, filename)
   album = Album.new(params)
-  file = File.open(image_url)
+  # file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/rite_of_spring.jpg")
+
+  file = File.open("../album_covers/#{filename}")
   album.photo.attach(io: file, filename: filename)
   album.save
+end
+
+def create_artist(params, filename)
+  artist = Artist.new(params)
+  # file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
+  file = File.open("../Artist_portraits/#{filename}")
+  artist.photo.attach(io: file, filename: filename)
+  artist.save
 end
 
 # need to add song_url/filename once song storage is determined
 def create_song(params)
   song = Song.new(params)
-
   song.save
-end
-
-# need to add image_url/filename once I get artist images in my bucket
-def create_artist(params)
-  artist = Artist.new(params)
-  artist.save
 end
 
 User.create([
@@ -57,20 +60,63 @@ User.create([
   ])
 
 
-create_artist({
-  name: 'Leonard Bernstein',
-  bio: 'Great Conductor'
-})
+create_artist({  name: 'Leonard Bernstein', bio: 'Great Conductor'}, 'bernstein.jpg')
+create_artist({ name: 'Jacqueline du Pré', bio: 'French Cellist'}, 'jacqueline-du-pre.jpg')
+create_artist({ name: 'Lili Boulanger', bio: 'French Composer'}, 'boulanger.jpg')
+create_artist({ name: 'Nadia Boulanger', bio: 'French Composer'}, 'Nadia-Boulanger.jpg')
+create_artist({ name: 'Tan Dun', bio: 'Chinese Composer'}, 'tan_dun.jpg')
+create_artist({ name: 'Jessye Norman', bio: 'Opera Singer'}, 'jessye_norman.jpg')
+create_artist({ name: 'Florence Price', bio: 'Composer'}, 'florence_price.jpg')
+create_artist({ name: 'Angele Dubeau', bio: 'Violinist'}, 'angele_dubeau.jpg')
+create_artist({ name: 'Unsuk Chin', bio: 'Composer'}, 'unsuk.jpg')
+create_artist({ name: 'Sergei Prokofiev', bio: 'Russian Composer'}, 'prokofiev.jpg')
+create_artist({ name: 'Igor Stravinsky', bio: 'Russian Composer'}, 'stravinsky.jpg')
+create_artist({ name: 'Lang Lang', bio: 'Pianist'}, 'lang_lang.jpg')
+create_artist({ name: 'George Walker', bio: 'Composer'}, 'george_walker.jpg')
+create_artist({ name: 'Philip Glass', bio: 'Composer'}, 'glass.jpg')
+create_artist({ name: 'Johannes Brahms', bio: 'Composer'}, 'brahms.jpeg')
 
-create_album({
-    title: 'The Rite of Spring',
-    year: 1980,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/bernstein2.jpg',
-    'bernstein2.jpg'
-)
+create_artist({  name: 'Leonard Bernstein', bio: 'Great Conductor'}, 'bernstein.jpg')
+create_artist({ name: 'Jacqueline du Pré', bio: 'French Cellist'}, 'jacqueline-du-pre.jpg')
+create_artist({ name: 'Lili Boulanger', bio: 'French Composer'}, 'boulanger.jpg')
+create_artist({ name: 'Nadia Boulanger', bio: 'French Composer'}, 'Nadia-Boulanger.jpg')
+create_artist({ name: 'Tan Dun', bio: 'Chinese Composer'}, 'tan_dun.jpg')
+create_artist({ name: 'Jessye Norman', bio: 'Opera Singer'}, 'jessye_norman.jpg')
+create_artist({ name: 'Florence Price', bio: 'Composer'}, 'florence_price.jpg')
+create_artist({ name: 'Angele Dubeau', bio: 'Violinist'}, 'angele_dubeau.jpg')
+create_artist({ name: 'Unsuk Chin', bio: 'Composer'}, 'unsuk.jpg')
+create_artist({ name: 'Sergei Prokofiev', bio: 'Russian Composer'}, 'prokofiev.jpg')
+create_artist({ name: 'Igor Stravinsky', bio: 'Russian Composer'}, 'stravinsky.jpg')
+create_artist({ name: 'Lang Lang', bio: 'Pianist'}, 'lang_lang.jpg')
+create_artist({ name: 'George Walker', bio: 'Composer'}, 'george_walker.jpg')
+create_artist({ name: 'Philip Glass', bio: 'Composer'}, 'glass.jpg')
+create_artist({ name: 'Johannes Brahms', bio: 'Composer'}, 'brahms.jpeg')
+
+create_album({title: 'The Rite of Spring', year: 1980, genre: 'Classical', artist_id: 1}, 'rite_of_spring.jpg')
+create_album({title: 'Mozart Piano Concerti', year: 1972, genre: 'Classical', artist_id: 12}, 'mozart_piano.png')
+create_album({title: 'Anders String Quartet', year: 2014, genre: 'Classical', artist_id: 3}, 'anders.jpg')
+create_album({title: 'Pathetique Symphony', year: 1980, genre: 'Classical', artist_id: 11}, 'pathetique.jpg')
+create_album({title: 'Bartok & Stravinsky', year: 1980, genre: 'Classical', artist_id: 2}, 'Bartok-Stravinsky.jpg')
+create_album({title: 'Tavole per Orfeo', year: 1980, genre: 'Classical', artist_id: 3}, 'tavole.png')
+create_album({title: 'Stravinsky & Stokowski', year: 1980, genre: 'Classical', artist_id: 4}, 'philadelphia.jpg')
+create_album({title: 'The Rite of Spring', year: 1976, genre: 'Classical', artist_id: 5}, 'bernstein_rite.jpg')
+create_album({title: 'Haydn & Boccherini Cello Concertos', year: 1980, genre: 'Classical', artist_id: 6}, 'cello_violin.jpg')
+create_album({title: 'Dances & Rhapsodies', year: 1980, genre: 'Classical', artist_id: 7}, 'danse.jpg')
+create_album({title: 'Mozart 5, Vieuxtemps 4', year: 1980, genre: 'Classical', artist_id: 8}, 'hahn_album.jpg')
+create_album({title: 'Arvo Pärt: Portrait', year: 1980, genre: 'Classical', artist_id: 9}, 'piete.jpg')
+
+create_album({title: 'The Rite of Spring', year: 1980, genre: 'Classical', artist_id: 1}, 'rite_of_spring.jpg')
+create_album({title: 'Mozart Piano Concerti', year: 1972, genre: 'Classical', artist_id: 12}, 'mozart_piano.png')
+create_album({title: 'Anders String Quartet', year: 2014, genre: 'Classical', artist_id: 3}, 'anders.jpg')
+create_album({title: 'Pathetique Symphony', year: 1980, genre: 'Classical', artist_id: 11}, 'pathetique.jpg')
+create_album({title: 'Bartok & Stravinsky', year: 1980, genre: 'Classical', artist_id: 2}, 'Bartok-Stravinsky.jpg')
+create_album({title: 'Tavole per Orfeo', year: 1980, genre: 'Classical', artist_id: 3}, 'tavole.png')
+create_album({title: 'Stravinsky & Stokowski', year: 1980, genre: 'Classical', artist_id: 4}, 'philadelphia.jpg')
+create_album({title: 'The Rite of Spring', year: 1976, genre: 'Classical', artist_id: 5}, 'bernstein_rite.jpg')
+create_album({title: 'Haydn & Boccherini Cello Concertos', year: 1980, genre: 'Classical', artist_id: 6}, 'cello_violin.jpg')
+create_album({title: 'Dances & Rhapsodies', year: 1980, genre: 'Classical', artist_id: 7}, 'danse.jpg')
+create_album({title: 'Mozart 5, Vieuxtemps 4', year: 1980, genre: 'Classical', artist_id: 8}, 'hahn_album.jpg')
+create_album({title: 'Arvo Pärt: Portrait', year: 1980, genre: 'Classical', artist_id: 9}, 'piete.jpg')
 
 create_song({title: 'Introduction',album_id: 1,duration: 129})
 create_song({title: 'Les Augures printaniers',album_id: 1,duration: 229})
@@ -86,177 +132,190 @@ create_song({title: 'Évocation des ancêtres',album_id: 1,duration: 129})
 create_song({title: 'Action rituelle des ancêtres',album_id: 1,duration: 432})
 create_song({title: 'Danse sacrale',album_id: 1,duration: 329})
 
-create_album({
-    title: 'Stravinsky Stokowski',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/field4_550x550.jpg',
-    'field4_550x550.jpg'
-)
-
-create_album({
-    title: 'Mozart Piano Concerto 11 & 22',
-    year: 1980,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/02_classical_covers_2_A.png',
-    '02_classical_covers_2_A.png'
-)
-create_album({
-    title: 'Mozart 5, Vieuxtemps 4',
-    year: 2014,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/71edpE8WPVL._SX522_.jpg',
-    '71edpE8WPVL._SX522_.jpg'
-)
-create_album({
-    title: 'Anders Koppel String Quartet',
-    year: 2018,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/Anders-Koppel-String-Quartets.jpg',
-    'Anders-Koppel-String-Quartets.jpg'
-)
-create_album({
-    title: 'Bartok & Stravinsky',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/Bartok-Stravinsky.jpg',
-    'Bartok-Stravinsky.jpg'
-)
-create_album({
-    title: 'Dances & Rhapsodies',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/Concert Hal letslookupandsmile fl.jpg',
-    'Concert Hal letslookupandsmile fl.jpg'
-)
-create_album({
-    title: 'Tavole per Orfeo',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/tavole.png',
-    'tavole.png'
-)
-create_album({
-    title: 'Pathetique',
-    year: 1976,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/tchaikovsky.jpg',
-    'tchaikovsky.jpg'
-)
-
-create_album({
-    title: 'The Rite of Spring',
-    year: 2003,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/a2014818508_10.jpg',
-    'a2014818508_10.jpg'
-)
-create_album({
-    title: 'Stravinsky Stokowski',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/field4_550x550.jpg',
-    'field4_550x550.jpg'
-)
-
-create_album({
-    title: 'Mozart Piano Concerto 11 & 22',
-    year: 1980,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/02_classical_covers_2_A.png',
-    '02_classical_covers_2_A.png'
-)
-create_album({
-    title: 'Mozart 5, Vieuxtemps 4',
-    year: 2014,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/71edpE8WPVL._SX522_.jpg',
-    '71edpE8WPVL._SX522_.jpg'
-)
-create_album({
-    title: 'Anders Koppel String Quartet',
-    year: 2018,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/Anders-Koppel-String-Quartets.jpg',
-    'Anders-Koppel-String-Quartets.jpg'
-)
-create_album({
-    title: 'Bartok & Stravinsky',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/Bartok-Stravinsky.jpg',
-    'Bartok-Stravinsky.jpg'
-)
-create_album({
-    title: 'Dances & Rhapsodies',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/Concert Hal letslookupandsmile fl.jpg',
-    'Concert Hal letslookupandsmile fl.jpg'
-)
-create_album({
-    title: 'Tavole per Orfeo',
-    year: 2016,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/tavole.png',
-    'tavole.png'
-)
-create_album({
-    title: 'Pathetique',
-    year: 1976,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/tchaikovsky.jpg',
-    'tchaikovsky.jpg'
-)
-create_album({
-    title: 'The Rite of Spring',
-    year: 1980,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/bernstein2.jpg',
-    'bernstein2.jpg'
-)
-create_album({
-    title: 'The Rite of Spring',
-    year: 2003,
-    genre: 'Classical',
-    artist_id: 1
-    },
-    '../album_covers/a2014818508_10.jpg',
-    'a2014818508_10.jpg'
-)
+create_song({title: 'Introduction',album_id: 1,duration: 129})
+create_song({title: 'Les Augures printaniers',album_id: 1,duration: 229})
+create_song({title: 'Jeu du rapt',album_id: 1,duration: 312})
+create_song({title: 'Rondes printanières',album_id: 1,duration: 124})
+create_song({title: 'Jeux des cités rivales',album_id: 1,duration: 229})
+create_song({title: 'Cortège du sage: Le Sage',album_id: 1,duration: 429})
+create_song({title: 'Danse de la terre',album_id: 1,duration: 529})
+create_song({title: 'Part II: Introduction',album_id: 1,duration: 229})
+create_song({title: 'Cercles mystérieux des adolescentes',album_id: 1,duration: 119})
+create_song({title: 'Glorification de l\'élue',album_id: 1,duration: 139})
+create_song({title: 'Évocation des ancêtres',album_id: 1,duration: 129})
+create_song({title: 'Action rituelle des ancêtres',album_id: 1,duration: 432})
+create_song({title: 'Danse sacrale',album_id: 1,duration: 329})
+# create_album({
+#     title: 'Stravinsky Stokowski',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/field4_550x550.jpg',
+#     'field4_550x550.jpg'
+# )
+#
+# create_album({
+#     title: 'Mozart Piano Concerto 11 & 22',
+#     year: 1980,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/02_classical_covers_2_A.png',
+#     '02_classical_covers_2_A.png'
+# )
+# create_album({
+#     title: 'Mozart 5, Vieuxtemps 4',
+#     year: 2014,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/71edpE8WPVL._SX522_.jpg',
+#     '71edpE8WPVL._SX522_.jpg'
+# )
+# create_album({
+#     title: 'Anders Koppel String Quartet',
+#     year: 2018,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/Anders-Koppel-String-Quartets.jpg',
+#     'Anders-Koppel-String-Quartets.jpg'
+# )
+# create_album({
+#     title: 'Bartok & Stravinsky',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/Bartok-Stravinsky.jpg',
+#     'Bartok-Stravinsky.jpg'
+# )
+# create_album({
+#     title: 'Dances & Rhapsodies',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/Concert Hal letslookupandsmile fl.jpg',
+#     'Concert Hal letslookupandsmile fl.jpg'
+# )
+# create_album({
+#     title: 'Tavole per Orfeo',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/tavole.png',
+#     'tavole.png'
+# )
+# create_album({
+#     title: 'Pathetique',
+#     year: 1976,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/tchaikovsky.jpg',
+#     'tchaikovsky.jpg'
+# )
+#
+# create_album({
+#     title: 'The Rite of Spring',
+#     year: 2003,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/a2014818508_10.jpg',
+#     'a2014818508_10.jpg'
+# )
+# create_album({
+#     title: 'Stravinsky Stokowski',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/field4_550x550.jpg',
+#     'field4_550x550.jpg'
+# )
+#
+# create_album({
+#     title: 'Mozart Piano Concerto 11 & 22',
+#     year: 1980,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/02_classical_covers_2_A.png',
+#     '02_classical_covers_2_A.png'
+# )
+# create_album({
+#     title: 'Mozart 5, Vieuxtemps 4',
+#     year: 2014,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/71edpE8WPVL._SX522_.jpg',
+#     '71edpE8WPVL._SX522_.jpg'
+# )
+# create_album({
+#     title: 'Anders Koppel String Quartet',
+#     year: 2018,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/Anders-Koppel-String-Quartets.jpg',
+#     'Anders-Koppel-String-Quartets.jpg'
+# )
+# create_album({
+#     title: 'Bartok & Stravinsky',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/Bartok-Stravinsky.jpg',
+#     'Bartok-Stravinsky.jpg'
+# )
+# create_album({
+#     title: 'Dances & Rhapsodies',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/Concert Hal letslookupandsmile fl.jpg',
+#     'Concert Hal letslookupandsmile fl.jpg'
+# )
+# create_album({
+#     title: 'Tavole per Orfeo',
+#     year: 2016,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/tavole.png',
+#     'tavole.png'
+# )
+# create_album({
+#     title: 'Pathetique',
+#     year: 1976,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/tchaikovsky.jpg',
+#     'tchaikovsky.jpg'
+# )
+# create_album({
+#     title: 'The Rite of Spring',
+#     year: 1980,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/bernstein2.jpg',
+#     'bernstein2.jpg'
+# )
+# create_album({
+#     title: 'The Rite of Spring',
+#     year: 2003,
+#     genre: 'Classical',
+#     artist_id: 1
+#     },
+#     '../album_covers/a2014818508_10.jpg',
+#     'a2014818508_10.jpg'
+# )

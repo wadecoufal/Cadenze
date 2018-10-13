@@ -9,7 +9,7 @@ class SongsIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchSongs();
-    document.getElementById('main-content').style.backgroundImage =
+    document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(34, 79, 107), rgb(6, 15, 20))'
   }
 

@@ -1,16 +1,25 @@
 #main-content {
-  background-image: linear-gradient(rgb(41, 44, 44), rgb(9, 10, 10));
-  transition: 5s;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 90px;
-  left: 0;
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 #main-content .logout {
   position: absolute;
   right: 15px;
   bottom: 105px;
+}
+
+#main-content-2 {
+  display: flex;
+  background-image: linear-gradient(rgb(41, 44, 44), rgb(9, 10, 10));
+  height: Calc(100vh - 90px);
+}
+
+#root {
+  height: 100vh;
+}
+
+.page {
+  height: 100%;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 class ArtistsIndex extends React.Component {
 
   componentDidMount() {
-    document.getElementById('main-content').style.backgroundImage =
+    document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(145, 0, 80), rgb(26, 1, 14))'
   }
 

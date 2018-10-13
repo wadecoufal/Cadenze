@@ -9,14 +9,12 @@ import MusicPlayer from './music_player/music_player';
 import Navbar from './navbars/navbar';
 
 const App = (props) => (
-  <div>
+  <div className="page">
     <header>
     </header>
 
     <AuthRoute path="/" component={Splash} />
     <ProtectedRoute path="/" component={MainContentContainer} />
-    <ProtectedRoute path="/" component={Sidebar} />
-    <ProtectedRoute path="/" component={MusicPlayer} />
   </div>
 );
 

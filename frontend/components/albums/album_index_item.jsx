@@ -20,7 +20,7 @@ class AlbumIndexItem extends React.Component {
         </div>
 
         <h3 className="collection-title">{album.title}</h3>
-        <h3 className="collection-creator">{album.artist.name}</h3>
+        <h3 className="collection-creator">{album.artistName}</h3>
       </Link>
     )
   }

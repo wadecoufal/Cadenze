@@ -18,7 +18,7 @@ class ArtistsIndex extends React.Component {
       <ul className="artist-rows">
         {this.props.artists.map( artist => {
           return (
-            <ArtistIndexItem artist={artist} />
+            <ArtistIndexItem key={artist.id} artist={artist} />
           )
         })}
       </ul>

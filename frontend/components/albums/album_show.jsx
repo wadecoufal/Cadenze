@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SongsIndexContainer from '../songs/songs_index_container';
-import { fetchAlbums } from '../../actions/album_actions';
+import { fetchAlbum } from '../../actions/album_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {album: state.entities.albums[ownProps.match.params.albumId - 1]}
+  return {album: state.entities.albums[ownProps.match.params.albumId]}
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAlbums: () => dispatch(fetchAlbums())
+  fetchAlbum: id => dispatch(fetchAlbum(id))
 })
 
 class AlbumShow extends React.Component {
@@ -19,7 +19,7 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAlbums();
+    this.props.fetchAlbum(this.props.match.params.albumId);
   }
 
   render() {
@@ -30,7 +30,7 @@ class AlbumShow extends React.Component {
           <img className="collection-image" src={this.props.album.photoUrl}></img>
           <div className="collection-info">
             <h3>{this.props.album.title}</h3>
-            <h6>{this.props.album.artist.name}</h6>
+            <h6>{this.props.album.artistName}</h6>
           </div>
         </div>
         <div className="collection-songs">

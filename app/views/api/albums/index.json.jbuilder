@@ -1,4 +1,5 @@
-json.array! @albums do |album|
-  json.extract! album, :title, :artist, :id
-  json.photoUrl url_for(album.photo)
+@albums.each do |album|
+  json.set! album.id do
+    json.partial! 'album', album: album
+  end
 end

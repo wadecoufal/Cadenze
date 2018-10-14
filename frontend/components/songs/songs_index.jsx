@@ -32,7 +32,7 @@ class SongsIndex extends React.Component {
       <ul className="song-rows" >
         {this.props.songs.map( song => {
           return (
-            <SongIndexItem song={song} />
+            <SongIndexItem key={song.id} song={song} />
           )
         })}
       </ul>

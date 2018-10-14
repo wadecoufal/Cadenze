@@ -14,7 +14,7 @@ class PlaylistsIndex extends React.Component {
       <ul className="item-rows" >
         {this.props.playlists.map( playlist => {
           return (
-            <PlaylistIndexItem playlist={playlist} />
+            <PlaylistIndexItem key={playlist.id} playlist={playlist} />
           )
         })}
       </ul>

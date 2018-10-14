@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 
 const mapDispatchToProps = dispatch => ({
-  openModal: () => dispatch(openModal())
+  openModal: (modal) => dispatch(openModal(modal))
 });
 
 class Navbar extends React.Component {
@@ -45,7 +45,7 @@ class Navbar extends React.Component {
         </div>
         <button
           className="new-playlist-btn"
-          onClick={this.props.openModal}
+          onClick={() => this.props.openModal('newPlaylist')}
         >NEW PLAYLIST</button>
 
       </ul>

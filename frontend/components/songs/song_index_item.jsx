@@ -16,7 +16,22 @@ class SongIndexItem extends React.Component {
         <div className="song-info">
           <div className="song-title-duration">
             <h4>{song.title}</h4>
-            <h4 className="duration">{song.durationStr}</h4>
+            <div className="elipse-duration">
+
+
+              <button>
+                <i className="fas fa-ellipsis-h">
+                  <ul className="song-dropdown hidden">
+
+
+
+                  </ul>
+                </i>
+              </button>
+
+
+              <h4 className="duration">{song.durationStr}</h4>
+            </div>
           </div>
           <div className="song-artist-album">
             <h4 className="artist-album-link">{song.artist.name}</h4>

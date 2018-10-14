@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-around;
   height: 50px;
-  width: 100%;
+  width: 650px;
   margin: auto;
-  // position: sticky;
+  margin-top: 36px;
 }
 
 .nav-bar .link {
@@ -24,5 +24,21 @@
 
 .active-nav-link {
   color: white;
-  border-bottom: 3px solid green;
+  border-bottom: 3px solid #1db954;
+}
+
+.new-playlist-btn {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  width: 141px;
+  height: 31px;
+  transition: 0.2s;
+}
+
+.new-playlist-btn:hover {
+  width: 147px;
+  height: 37px;
+  transition: 0.2s;
 }

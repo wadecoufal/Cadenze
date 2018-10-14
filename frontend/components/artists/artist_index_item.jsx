@@ -12,8 +12,12 @@ class ArtistIndexItem extends React.Component {
 
     return (
       <div className="artist-index-item">
-
-        <img className='artist-img' src={artist.photoUrl}></img>
+        <div className="artist-image-container">
+          <img className='artist-img' src={artist.photoUrl}></img>
+          <div className="artist-overlay">
+            <img className="artist-img-overlay" src={window.playBtn}></img>
+          </div>
+        </div>
 
 
         <h3 className='artist-name'>{artist.name}</h3>

@@ -7,7 +7,7 @@
   margin-top: 26px;
 }
 
-.album-rows {
+.item-rows {
   display: flex;
   flex-wrap: wrap;
   height: 100%;
@@ -15,7 +15,7 @@
   margin: 0 45px;
 }
 
-.album-index-item {
+.collection-index-item {
 
   padding: 0 8px;
   margin: 0px 8px 25px;
@@ -26,12 +26,12 @@
   text-align: center;
 }
 
-.album-img {
+.collection-img {
   width: 222px;
   height: 222px;
 }
 
-.album-title {
+.collection-title {
   margin-top: 12px;
   margin-bottom: 4px;
   height: 20px;
@@ -40,7 +40,7 @@
   font-weight: 300;
 }
 
-.album-artist {
+.collection-creator {
   display: inline-block;
   height: 20px;
   margin: auto;
@@ -52,13 +52,13 @@
   transition: 0.2s;
 }
 
-.album-artist:hover {
+.collection-creator:hover {
   border-bottom: 1px solid white;
   color: white;
   transition: 0.2s;
 }
 
-.album-image-container {
+.collection-image-container {
   position: relative;
   width: 100%;
   height: auto;
@@ -77,11 +77,11 @@
   background-color: #000;
 }
 
-.album-image-container:hover .image-overlay {
+.collection-image-container:hover .image-overlay {
   opacity: 0.7;
 }
 
-.album-img-overlay {
+.collection-img-overlay {
   max-height: 100%;
   max-width: 100%;
   width: 38%;
@@ -95,7 +95,7 @@
   transition: 0.25s
 }
 
-.album-img-overlay:hover {
+.collection-img-overlay:hover {
   width: 44%;
   height: 44%;
   transition: 0.25s;

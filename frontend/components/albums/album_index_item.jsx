@@ -10,17 +10,17 @@ class AlbumIndexItem extends React.Component {
   render() {
     const { album } = this.props;
     return (
-      <Link to={`/album/${album.id}`} className="album-index-item">
+      <Link to={`/album/${album.id}`} className="collection-index-item">
 
-        <div className="album-image-container">
-          <img className="album-img" src={album.photoUrl}></img>
+        <div className="collection-image-container">
+          <img className="collection-img" src={album.photoUrl}></img>
           <div className="image-overlay">
-            <img className='album-img-overlay' src={window.playBtn}></img>
+            <img className='collection-img-overlay' src={window.playBtn}></img>
           </div>
         </div>
 
-        <h3 className="album-title">{album.title}</h3>
-        <h3 className="album-artist">{album.artist.name}</h3>
+        <h3 className="collection-title">{album.title}</h3>
+        <h3 className="collection-creator">{album.artist.name}</h3>
       </Link>
     )
   }

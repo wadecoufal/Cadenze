@@ -7,7 +7,7 @@
   margin-top: 36px;
 }
 
-.nav-bar .link {
+.nav-bar-link {
   color: hsla(0, 0%, 100%, 0.6);
   height: 16px;
   padding: 5px 10px;
@@ -17,14 +17,14 @@
   font-weight: 500;
 }
 
-.nav-bar .link:hover {
+.nav-bar-link:hover {
   color: white;
   transition: 0.3s;
 }
 
 .active-nav-link {
-  color: white;
-  border-bottom: 3px solid #1db954;
+  color: hsla(0, 0%, 100%, 1);
+  border-bottom: 3px solid green;
 }
 
 .new-playlist-btn {

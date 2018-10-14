@@ -19,25 +19,25 @@ class Navbar extends React.Component {
       <ul className="nav-bar">
         <div>
           <NavLink
-            className="link"
+            className="nav-bar-link"
             activeClassName="active-nav-link"
             to={`/${this.props.page}/albums`}
           >ALBUMS</NavLink>
 
           <NavLink
-            className="link"
+            className="nav-bar-link"
             activeClassName="active-nav-link"
             to={`/${this.props.page}/artists`}
           >ARTISTS</NavLink>
 
           <NavLink
-            className="link"
+            className="nav-bar-link"
             activeClassName="active-nav-link"
             to={`/${this.props.page}/playlists`}
           >PLAYLISTS</NavLink>
 
           <NavLink
-            className="link"
+            className="nav-bar-link"
             activeClassName="active-nav-link"
             to={`/${this.props.page}/songs`}
           >SONGS</NavLink>
@@ -54,4 +54,4 @@ class Navbar extends React.Component {
 
 }
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default withRouter(connect(null, mapDispatchToProps)(Navbar));

@@ -11,7 +11,7 @@ class ArtistIndexItem extends React.Component {
     const { artist } = this.props;
 
     return (
-      <div className="artist-index-item">
+      <Link to={`/artist/${artist.id}`} className="artist-index-item">
         <div className="artist-image-container">
           <img className='artist-img' src={artist.photoUrl}></img>
           <div className="artist-overlay">
@@ -21,7 +21,7 @@ class ArtistIndexItem extends React.Component {
 
 
         <h3 className='artist-name'>{artist.name}</h3>
-      </div>
+      </Link>
     )
   }
 

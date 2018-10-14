@@ -11,7 +11,7 @@ class PlaylistIndexItem extends React.Component {
     const { playlist } = this.props;
 
     return (
-      <Link to={`/browse/albums}`} className="collection-index-item">
+      <Link to={`/playlist/${playlist.id}`} className="collection-index-item">
 
         <div className="collection-image-container">
           <img className="collection-img"></img>

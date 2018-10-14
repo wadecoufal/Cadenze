@@ -2,35 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SongsIndexContainer from '../songs/songs_index_container';
-import { fetchAlbums } from '../../actions/album_actions';
+import { fetchPlaylists } from '../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {album: state.entities.albums[ownProps.match.params.albumId - 1]}
+  return {playlist: state.entities.playlists[ownProps.match.params.playlistId - 1]}
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAlbums: () => dispatch(fetchAlbums())
+  fetchPlaylists: () => dispatch(fetchPlaylists())
 })
 
-class AlbumShow extends React.Component {
+class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.album;
+    this.state = this.props.playlist;
   }
 
   componentDidMount() {
-    this.props.fetchAlbums();
+    this.props.fetchPlaylists();
   }
 
   render() {
 
-    const album = this.props.album ? (
+    const playlist = this.props.playlist ? (
       <div className="collection-show">
         <div className="collection-img-info">
-          <img className="collection-image" src={this.props.album.photoUrl}></img>
+          <img className="collection-image" ></img>
           <div className="collection-info">
-            <h3>{this.props.album.title}</h3>
-            <h6>{this.props.album.artist.name}</h6>
+            <h3>{this.props.playlist.title}</h3>
+            <h6>{this.props.playlist.user.username}</h6>
           </div>
         </div>
         <div className="collection-songs">
@@ -38,15 +38,15 @@ class AlbumShow extends React.Component {
         </div>
       </div>
     ) : (
-      <h4>No album to show here</h4>
+      <h4>No playlist to show here</h4>
     )
 
     return (
       <div>
-        {album}
+        {playlist}
       </div>
     )
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AlbumShow));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PlaylistShow));

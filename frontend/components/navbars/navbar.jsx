@@ -1,5 +1,11 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { openModal } from '../../actions/modal_actions';
+
+const mapDispatchToProps = dispatch => ({
+  openModal: () => dispatch(openModal())
+});
 
 class Navbar extends React.Component {
 
@@ -37,7 +43,10 @@ class Navbar extends React.Component {
           >SONGS</NavLink>
 
         </div>
-        <button className="new-playlist-btn">NEW PLAYLIST</button>
+        <button
+          className="new-playlist-btn"
+          onClick={this.props.openModal}
+        >NEW PLAYLIST</button>
 
       </ul>
     )
@@ -45,4 +54,4 @@ class Navbar extends React.Component {
 
 }
 
-export default Navbar;
+export default connect(null, mapDispatchToProps)(Navbar);

@@ -6,6 +6,7 @@ import Navbar from '../navbars/navbar';
 import Browse from './browse';
 import Search from './search';
 import Collection from './collection';
+import Modal from '../modal';
 
 import AlbumShow from '../albums/album_show';
 
@@ -16,6 +17,7 @@ class MainContent extends React.Component {
     return (
       <div id="main-content">
         <div id="main-content-2">
+          <Modal />
           <Sidebar />
 
           <div className="feature-content" >

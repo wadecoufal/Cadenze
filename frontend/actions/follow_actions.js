@@ -7,7 +7,7 @@ const receiveFollows = follows => ({
   follows
 });
 
-export const fetchFollows = currUserId => {
+export const fetchFollows = currUserId => dispatch => {
   return FollowApiUtil.fetchFollows(currUserId)
     .then(follows => dispatch(receiveFollows(follows)),
           err => console.log(err))

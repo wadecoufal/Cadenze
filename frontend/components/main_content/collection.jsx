@@ -3,6 +3,7 @@ import Navbar from '../navbars/navbar';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchFollows } from '../../actions/follow_actions';
+import { fetchAlbums } from '../../actions/album_actions';
 
 import AlbumsIndexContainer from '../albums/albums_index_container';
 import ArtistsIndexContainer from '../artists/artists_index_container';
@@ -10,13 +11,16 @@ import PlaylistsIndexContainer from '../playlists/playlists_index_container';
 import SongsIndexContainer from '../songs/songs_index_container';
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  return {
   currUserId: state.session.id
-});
+}};
 
-const mapDispatchToProps = dispatch => ({
-  fetchFollows: currUserId => dispatch(fetchFollows(currUserId))
-});
+const mapDispatchToProps = dispatch => {
+  return {
+  // fetchFollows: currUserId => dispatch(fetchFollows(currUserId)),
+  fetchAlbums: () => dispatch(fetchAlbums())
+}};
 
 class Collection extends React.Component {
 
@@ -25,7 +29,7 @@ class Collection extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchFollows({currUserId: this.props.currUserId});
+    this.props.fetchAlbums();
   }
 
   render() {

@@ -8,7 +8,13 @@ class SongsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSongs({song_ids: this.props.songIds});
+    if (this.props.songIds && this.props.songIds.length === 0) {
+      this.props.fetchSongs({song_ids: "NoSongsHere"});
+    } else if (this.props.songIds) {
+      this.props.fetchSongs({song_ids: this.props.songIds});
+    } else {
+      this.props.fetchSongs();
+    }
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(34, 79, 107), rgb(6, 15, 20))'
   }

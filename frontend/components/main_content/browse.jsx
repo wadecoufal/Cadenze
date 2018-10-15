@@ -9,10 +9,6 @@ import SongsIndexContainer from '../songs/songs_index_container';
 
 class Browse extends React.Component {
 
-  componentDidMount() {
-    
-  }
-
   render() {
     const page = 'browse';
 

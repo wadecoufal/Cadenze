@@ -23,7 +23,6 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
-
     const playlist = this.props.playlist ? (
       <div className="collection-show">
         <div className="collection-img-info">

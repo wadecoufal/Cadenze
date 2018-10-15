@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../navbars/sidebar';
-import MusicPlayer from '../music_player/music_player';
+import ReactMusicPlayer from '../music_player/music_player';
 
 import Navbar from '../navbars/navbar';
 import Browse from './browse';
@@ -15,6 +15,11 @@ import ArtistShow from '../artists/artist_show';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 class MainContent extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render () {
     return (
       <div id="main-content">
@@ -36,10 +41,10 @@ class MainContent extends React.Component {
 
         </div>
 
-        <MusicPlayer />
+        <ReactMusicPlayer />
       </div>
     )
   }
 }
 
-export default MainContent;
+export default connect(null, mdp)(MainContent);

@@ -30,3 +30,7 @@
   padding: 0px 35px;
   overflow: scroll;
 }
+
+.player-container {
+  position: absolute;
+}

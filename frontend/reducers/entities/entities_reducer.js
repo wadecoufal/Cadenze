@@ -5,6 +5,7 @@ import songsReducer from './songs_reducer';
 import artistsReducer from './artists_reducer';
 import playlistsReducer from './playlists_reducer';
 import followsReducer from './follows_reducer';
+import queueReducer from './queue_reducer';
 
 export default combineReducers({
   users: usersReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   songs: songsReducer,
   artists: artistsReducer,
   playlists: playlistsReducer,
-  follows: followsReducer
+  follows: followsReducer,
+  queue: queueReducer
 });

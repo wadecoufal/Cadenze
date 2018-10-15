@@ -33,6 +33,7 @@ class PlaylistSongForm extends React.Component {
     this.props.createPlaylistSong(
       {song_id: this.props.songId, playlist_id: e.currentTarget.getAttribute('data-playlist-id')}
     );
+    this.props.closeModal();
   }
 
   componentDidMount() {
@@ -41,14 +42,22 @@ class PlaylistSongForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.props.closeModal} >X</button>
+      <div className="playlist-song-form">
+        <button className="x-btn button-strip" onClick={this.props.closeModal}>X</button>
+
+        <h1 className="playlist-form-header">Add to playlist</h1>
+
 
         <form>
-          <ul className="item-rows">
+          <ul className="item-rows user-playlists">
             {this.props.playlists.map( playlist => {
               return (
-                <button data-playlist-id={`${playlist.id}`} onClick={this.handleSubmit}>
+                <button
+                  data-playlist-id={`${playlist.id}`}
+                  onClick={this.handleSubmit}
+                  className="button-strip"
+                  key={playlist.id}
+                >
                   <div className="collection-index-item">
 
                     <div className="collection-image-container">

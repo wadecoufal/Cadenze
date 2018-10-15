@@ -41,12 +41,12 @@ class PlaylistForm extends React.Component {
       <div className="playlist-form">
 
         <button
-          className="x-btn"
+          className="x-btn button-strip"
           onClick={this.props.closeModal}>X</button>
 
 
 
-        <h1>Create new playlist</h1>
+        <h1 className="playlist-form-header">Create new playlist</h1>
 
         <form className="playlist-name-field">
           <div className="input-box">

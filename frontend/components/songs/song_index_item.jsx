@@ -25,7 +25,10 @@ class SongIndexItem extends React.Component {
             <div className="elipse-duration">
 
 
-              <button onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}>
+              <button
+                onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}
+                className="button-strip"
+              >
                 <i className="fas fa-ellipsis-h">
                   <ul className="song-dropdown hidden">
 

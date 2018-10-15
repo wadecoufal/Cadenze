@@ -9,14 +9,21 @@
   width: 80px;
   height: 80px;
   margin: auto;
-  background-color: transparent;
   font-size: 80px;
   font-weight: 100;
   transition: 0.3s;
 }
 
-.x-btn:hover {
+.button-strip {
   background-color: transparent;
+
+}
+
+.button-strip:hover {
+  background-color: transparent;
+}
+
+.x-btn:hover {
   color: red;
   transition: 0.3s;
 }
@@ -29,7 +36,7 @@
   caret-color: rgb(0, 197, 85);
 }
 
-.playlist-form h1 {
+.playlist-form-header {
   width: 457px;
   height: 56px;
   text-align: center;
@@ -71,4 +78,15 @@
   .cancel-btn:hover {
     border: 1px solid white;
   }
+}
+
+.playlist-song-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 25%;
+}
+
+.user-playlists {
+  justify-content: center;
 }

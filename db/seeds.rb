@@ -25,7 +25,7 @@ User.destroy_all
 
 def create_album(params, filename)
   album = Album.new(params)
-  # file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/rite_of_spring.jpg")
+  # file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
 
   file = File.open("../album_covers/#{filename}")
   album.photo.attach(io: file, filename: filename)

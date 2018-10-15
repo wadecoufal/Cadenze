@@ -3,7 +3,7 @@ class Api::AlbumsController < ApplicationController
     if params[:album_ids]
       @albums = Album.where(id: params[:album_ids])
     else
-      @albums = Album.all
+      @albums = Album.with_attached_photo.all.includes(:artist)
     end
   end
 

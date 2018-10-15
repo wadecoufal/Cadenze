@@ -33,8 +33,8 @@ class PlaylistShow extends React.Component {
             <h6>{this.props.playlist.user.username}</h6>
           </div>
         </div>
-        <div className="collection-songs">
-          <SongsIndexContainer />
+        <div className="collection-songs playlist-show-songs">
+          <SongsIndexContainer songIds={this.props.playlist.song_ids}/>
         </div>
       </div>
     ) : (

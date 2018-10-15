@@ -3,7 +3,7 @@ class Api::PlaylistsController < ApplicationController
     if params[:curr_user_id]
       @playlists = Playlist.where(user_id: params[:curr_user_id])
     else
-      @playlists = Playlist.all
+      @playlists = Playlist.all.includes(:songs).includes(:user)
     end
   end
 

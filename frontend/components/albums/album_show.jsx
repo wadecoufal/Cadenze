@@ -32,7 +32,7 @@ class AlbumShow extends React.Component {
             <h6>{this.props.album.artistName}</h6>
           </div>
         </div>
-        <div className="collection-songs">
+        <div className="collection-songs album-show-songs">
           <SongsIndexContainer songIds={this.props.album.song_ids}/>
         </div>
       </div>

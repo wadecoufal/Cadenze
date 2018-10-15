@@ -1,4 +1,10 @@
 import React from 'react';
+import { openModal } from '../../actions/modal_actions';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => ({
+  openModal: (modal, songId) => dispatch(openModal(modal, songId))
+});
 
 class SongIndexItem extends React.Component {
 
@@ -19,7 +25,7 @@ class SongIndexItem extends React.Component {
             <div className="elipse-duration">
 
 
-              <button>
+              <button onClick={() => this.props.openModal('newPlaylistSong', `${song.id}`)}>
                 <i className="fas fa-ellipsis-h">
                   <ul className="song-dropdown hidden">
 
@@ -44,4 +50,4 @@ class SongIndexItem extends React.Component {
   }
 }
 
-export default SongIndexItem;
+export default connect(null, mapDispatchToProps)(SongIndexItem);

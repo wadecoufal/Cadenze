@@ -17,7 +17,9 @@ const mapDispatchToProps = dispatch => ({
 class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.artist;
+    this.state = {
+      albums: {}
+    };
   }
 
   componentDidMount() {

@@ -1,4 +1,80 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import { createPlaylistSong } from '../../actions/playlist_actions';
+import { createPlaylistSong, fetchPlaylists } from '../../actions/playlist_actions';
+import PlaylistIndexItem from './playlist_index_item';
+
+
+const mapStateToProps = state => ({
+  playlists: Object.values(state.entities.playlists),
+  currUserId: state.session.id,
+  songId: state.ui.modal.songId
+});
+
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeModal()),
+  createPlaylistSong: playlistSong => dispatch(createPlaylistSong(playlistSong)),
+  fetchPlaylists: params => dispatch(fetchPlaylists(params))
+});
+
+class PlaylistSongForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      playlist_id: null,
+      song_id: null
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPlaylistSong(
+      {song_id: this.props.songId, playlist_id: e.currentTarget.getAttribute('data-playlist-id')}
+    );
+  }
+
+  componentDidMount() {
+    this.props.fetchPlaylists({curr_user_id: this.props.currUserId});
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.props.closeModal} >X</button>
+
+        <form>
+          <ul className="item-rows">
+            {this.props.playlists.map( playlist => {
+              return (
+                <button data-playlist-id={`${playlist.id}`} onClick={this.handleSubmit}>
+                  <div className="collection-index-item">
+
+                    <div className="collection-image-container">
+                      <img className="collection-img"></img>
+                      <div className="image-overlay">
+                        <img className='collection-img-overlay' src={window.playBtn}></img>
+                      </div>
+                    </div>
+
+                    <h3 className="collection-title">{playlist.title}</h3>
+                    <h3 className="collection-creator">{playlist.user.username}</h3>
+                  </div>
+                </button>
+              )
+            })}
+          </ul>
+
+
+        </form>
+
+
+
+      </div>
+    )
+  }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistSongForm);

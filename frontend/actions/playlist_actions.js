@@ -28,3 +28,7 @@ export const fetchPlaylist = id => dispatch => {
   return PlaylistApiUtil.fetchPlaylist(id)
     .then(playlist => dispatch(receivePlaylist(playlist)))
 };
+
+export const createPlaylistSong = playlistSong => dispatch => {
+  return PlaylistApiUtil.createPlaylistSong(playlistSong).then(null, err => console.log(err));
+}

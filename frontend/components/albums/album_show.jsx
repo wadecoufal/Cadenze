@@ -23,7 +23,6 @@ class AlbumShow extends React.Component {
   }
 
   render() {
-
     const album = this.props.album ? (
       <div className="collection-show">
         <div className="collection-img-info">
@@ -34,7 +33,7 @@ class AlbumShow extends React.Component {
           </div>
         </div>
         <div className="collection-songs">
-          <SongsIndexContainer />
+          <SongsIndexContainer songIds={this.props.album.song_ids}/>
         </div>
       </div>
     ) : (

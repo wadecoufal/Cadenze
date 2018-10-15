@@ -2,25 +2,54 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20%;
+  // padding: 0 20%;
 }
 
 .x-btn {
-  width: 32px;
-  height: 32px;
+  width: 80px;
+  height: 80px;
   margin: auto;
+  background-color: transparent;
+  font-size: 80px;
+  font-weight: 100;
+  transition: 0.3s;
+}
+
+.x-btn:hover {
+  background-color: transparent;
+  color: red;
+  transition: 0.3s;
+}
+
+.input-box-input {
+  width: 100%;
+  height: 73px;
+  font-size: 32px;
+  color: white;
+  caret-color: rgb(0, 197, 85);
 }
 
 .playlist-form h1 {
-  width: 426px;
+  width: 457px;
   height: 56px;
   text-align: center;
   margin: auto;
+  color: white;
+  font-size: 48px;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+}
+
+.input-box-label {
+  font-size: 13px;
 }
 
 .playlist-name-field {
   width: 100%;
   height: 147px;
+  background-color: rgb(40, 40, 40);
+  padding: 0 20%;
+  margin-bottom: 20px;
 }
 
 .playlist-btns {
@@ -31,6 +60,7 @@
   button {
     width: 140px;
     display: inline-block;
+    margin: 7px;
   }
 
   .cancel-btn {

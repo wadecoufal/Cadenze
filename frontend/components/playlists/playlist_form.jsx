@@ -40,7 +40,11 @@ class PlaylistForm extends React.Component {
     return (
       <div className="playlist-form">
 
-        <button className="x-btn" onClick={this.props.closeModal}>X</button>
+        <button
+          className="x-btn"
+          onClick={this.props.closeModal}>X</button>
+
+
 
         <h1>Create new playlist</h1>
 

@@ -7,8 +7,8 @@ const receiveSongs = songs => ({
   songs
 });
 
-export const fetchSongs = () => dispatch => {
-  return SongApiUtil.fetchSongs()
+export const fetchSongs = (params) => dispatch => {
+  return SongApiUtil.fetchSongs(params)
     .then(songs => dispatch(receiveSongs(songs)),
           err => console.log(err))
 };

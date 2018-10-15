@@ -34,8 +34,8 @@ class SongIndexItem extends React.Component {
             </div>
           </div>
           <div className="song-artist-album">
-            <h4 className="artist-album-link">{song.artist.name}</h4>
-            <h4 className="artist-album-link">{song.album.title}</h4>
+            <h4 className="artist-album-link">{song.artistName}</h4>
+            <h4 className="artist-album-link">{song.albumTitle}</h4>
           </div>
         </div>
 

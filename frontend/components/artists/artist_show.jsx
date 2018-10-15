@@ -24,12 +24,6 @@ class ArtistShow extends React.Component {
     this.props.fetchArtist(this.props.match.params.artistId);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (!this.props.artist || this.props.artist.id !== parseInt(newProps.match.params.artistId) ) {
-      this.props.fetchArtist(newProps.match.params.artistId);
-    }
-  }
-
   render() {
     const artist = this.props.artist ? (
       <div className="artist-show">
@@ -40,7 +34,7 @@ class ArtistShow extends React.Component {
 
 
         <div className="artists-albums">
-          <AlbumsIndexContainer albumIds={this.props.artist.albumIds}/>
+          <AlbumsIndexContainer albumIds={this.props.artist.album_ids}/>
         </div>
 
       </div>

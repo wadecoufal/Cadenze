@@ -1,6 +1,10 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.all
+    if params[:curr_user_id]
+      @playlists = Playlist.where(user_id: params[:curr_user_id])
+    else
+      @playlists = Playlist.all
+    end
   end
 
   def show

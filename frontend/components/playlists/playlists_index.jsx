@@ -3,8 +3,12 @@ import PlaylistIndexItem from './playlist_index_item';
 
 class PlaylistsIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
-    this.props.fetchPlaylists();
+    this.props.fetchPlaylists({curr_user_id: this.props.currUserId});
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(4, 180, 44), rgb(9, 10, 10))'
   }

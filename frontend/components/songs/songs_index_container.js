@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 import SongsIndex from './songs_index';
 import { fetchSongs } from '../../actions/song_actions';
 
-const msp = state => ({
-  songs: state.entities.songs
+const msp = (state, ownProps) => ({
+  songs: Object.values(state.entities.songs),
+  songIds: ownProps.songIds
 });
 
 const mdp = dispatch => ({
-  fetchSongs: () => dispatch(fetchSongs())
+  fetchSongs: (params) => dispatch(fetchSongs(params))
 });
 
 export default connect(msp, mdp)(SongsIndex);

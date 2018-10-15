@@ -13,8 +13,8 @@ const receivePlaylist = playlist => ({
   playlist
 })
 
-export const fetchPlaylists = () => dispatch => {
-  return PlaylistApiUtil.fetchPlaylists()
+export const fetchPlaylists = (params) => dispatch => {
+  return PlaylistApiUtil.fetchPlaylists(params)
     .then(playlists => dispatch(receivePlaylists(playlists)))
 };
 
@@ -22,4 +22,9 @@ export const createPlaylist = playlist => dispatch => {
   return PlaylistApiUtil.createPlaylist(playlist)
     .then(playlist => dispatch(receivePlaylist(playlist)),
           err => console.log(err))
+};
+
+export const fetchPlaylist = id => dispatch => {
+  return PlaylistApiUtil.fetchPlaylist(id)
+    .then(playlist => dispatch(receivePlaylist(playlist)))
 };

@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SongsIndexContainer from '../songs/songs_index_container';
-import { fetchPlaylists } from '../../actions/playlist_actions';
+import { fetchPlaylist } from '../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {playlist: state.entities.playlists[ownProps.match.params.playlistId - 1]}
+  return {playlist: state.entities.playlists[ownProps.match.params.playlistId]}
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlaylists: () => dispatch(fetchPlaylists())
+  fetchPlaylist: (id) => dispatch(fetchPlaylist(id))
 })
 
 class PlaylistShow extends React.Component {
@@ -19,7 +19,7 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlaylists();
+    this.props.fetchPlaylist(this.props.match.params.playlistId);
   }
 
   render() {

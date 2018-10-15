@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import PlaylistForm from './playlists/playlist_form';
-// import PlaylistSongForm from './playlists/playlist_song_form';
+import PlaylistSongForm from './playlists/playlist_song_form';
 
 function Modal({ modal, closeModal} ) {
   if (!modal) {
@@ -13,6 +13,9 @@ function Modal({ modal, closeModal} ) {
   switch(modal) {
     case 'newPlaylist':
       component = <PlaylistForm />;
+      break;
+    case 'newPlaylistSong':
+      component = <PlaylistSongForm />
       break;
     default:
       return null;

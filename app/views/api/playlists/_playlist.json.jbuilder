@@ -1,2 +1,2 @@
-json.extract! playlist, :title, :songs, :user, :id
+json.extract! playlist, :title, :user, :id
 # add photo? default photo?

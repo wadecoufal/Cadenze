@@ -25,17 +25,17 @@ User.destroy_all
 
 def create_album(params, filename)
   album = Album.new(params)
-  file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
+  # file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
 
-  # file = File.open("../album_covers/#{filename}")
+  file = File.open("../album_covers/#{filename}")
   album.photo.attach(io: file, filename: filename)
   album.save
 end
 
 def create_artist(params, filename)
   artist = Artist.new(params)
-  file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
-  # file = File.open("../Artist_portraits/#{filename}")
+  # file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
+  file = File.open("../Artist_portraits/#{filename}")
   artist.photo.attach(io: file, filename: filename)
   artist.save
 end

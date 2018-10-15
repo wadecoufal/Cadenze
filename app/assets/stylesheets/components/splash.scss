@@ -71,6 +71,8 @@
 .splash-content {
   margin-top: 200px;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .splash-content h1, h4{
@@ -91,9 +93,8 @@
 }
 
 .splash-content button {
-  width: 14%;
+  width: 32%;
   height: 48px;
-  position: absolute;
   left: 43%;
   margin-top: 13px;
 }

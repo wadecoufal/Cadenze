@@ -8,7 +8,9 @@ class ArtistsIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.followedArtistIds && this.props.followedArtistIds.length === 0) {
+    if (this.props.searchQuery) {
+      this.props.fetchArtists({search_query: this.props.searchQuery})
+    }else if (this.props.followedArtistIds && this.props.followedArtistIds.length === 0) {
       this.props.fetchArtists({followed_artist_ids: "NoArtistsHere"})
     } else if (this.props.followedArtistIds) {
       this.props.fetchArtists({followed_artist_ids: this.props.followedArtistIds})
@@ -18,6 +20,12 @@ class ArtistsIndex extends React.Component {
 
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(145, 0, 80), rgb(26, 1, 14))'
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.searchQuery != this.props.searchQuery) {
+      this.props.fetchArtists({search_query: newProps.searchQuery});
+    }
   }
 
   render() {

@@ -15,7 +15,8 @@ const receiveArtist = artist => ({
 
 export const fetchArtists = (params) => dispatch => {
   return ArtistApiUtil.fetchArtists(params)
-    .then(artists => dispatch(receiveArtists(artists)))
+    .then(artists => dispatch(receiveArtists(artists)),
+          err => console.log(err))
 };
 
 export const fetchArtist = id => dispatch => {

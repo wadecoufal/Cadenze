@@ -8,8 +8,9 @@ class PlaylistsIndex extends React.Component {
   }
 
   componentDidMount() {
-
-    if (this.props.followedPlaylistIds && this.props.followedPlaylistIds.length === 0) {
+    if (this.props.searchQuery) {
+      this.props.fetchPlaylists({search_query: this.props.searchQuery});
+    } else if (this.props.followedPlaylistIds && this.props.followedPlaylistIds.length === 0) {
       this.props.fetchPlaylists({followed_playlist_ids: "NoPlaylistsHere",
       curr_user_id: this.props.currUserId})
     } else if (this.props.followedPlaylistIds) {
@@ -20,6 +21,12 @@ class PlaylistsIndex extends React.Component {
     }
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(4, 180, 44), rgb(9, 10, 10))'
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.searchQuery != this.props.searchQuery) {
+      this.props.fetchPlaylists({search_query: newProps.searchQuery});
+    }
   }
 
   render() {

@@ -10,7 +10,9 @@ class SongsIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.songIds && this.props.songIds.length === 0) {
+    if (this.props.searchQuery) {
+      this.props.fetchSongs({search_query: this.props.searchQuery});
+    } else if (this.props.songIds && this.props.songIds.length === 0) {
       this.props.fetchSongs({song_ids: "NoSongsHere"});
     } else if (this.props.songIds) {
       this.props.fetchSongs({song_ids: this.props.songIds});
@@ -20,6 +22,12 @@ class SongsIndex extends React.Component {
 
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(34, 79, 107), rgb(6, 15, 20))'
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.searchQuery != this.props.searchQuery) {
+      this.props.fetchSongs({search_query: newProps.searchQuery});
+    }
   }
 
   formatDuration() {

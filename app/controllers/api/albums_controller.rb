@@ -1,6 +1,8 @@
 class Api::AlbumsController < ApplicationController
   def index
-    if params[:album_ids] === 'NoAlbumsHere'
+    if params[:search_query]
+      @albums = Album.where('title LIKE ?', "#{params[:search_query]}%")
+    elsif params[:album_ids] === 'NoAlbumsHere'
       @albums = []
     elsif params[:album_ids]
       @albums = Album.with_attached_photo.where(id: params[:album_ids]).includes(:artist)

@@ -13,12 +13,7 @@ class ReactMusicPlayer extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-          currentSong: {url: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBSQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--361e519fe9d6bd267ce3bdb6286ffd80c6fce274/fileNumber1",
-          cover: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8e1fc061e1b2b0e51ffa6a02508d31e38e9ff885/rite_of_spring.jpg",
-          artist: {
-            name: 'Bernstein',
-            song: 'Rite'
-          }},
+          currentSong: {url: null, cover: null, artist: {name: null, song:null}},
           current: 0,
           progress: 0,
           mute: false,
@@ -141,7 +136,7 @@ class ReactMusicPlayer extends React.Component {
             <div className="music-player">
                 <audio src={currentSong.url} autoPlay={this.state.playing} preload="auto" ref="player"></audio>
 
-                <div className="song-info-and-img">
+                <div className="song-info-and-img" style={currentSong.url ? {} : {display: 'none'}}>
                   <img className="song-info-img" src={currentSong.cover}></img>
                   <div className="song-info-title-artistname">
                     <h6 className="song-info-title">{currentSong.artist.song}</h6>
@@ -155,7 +150,7 @@ class ReactMusicPlayer extends React.Component {
 
                         <div className="pbf">
                           <button onClick={this.previous} className="player-btn medium" title="Previous Song">
-                              <i class="fas fa-step-backward"></i>
+                              <i className="fas fa-step-backward"></i>
                           </button>
 
                           <button onClick={this.toggle} className="player-btn big" title="Play/Pause">
@@ -163,7 +158,7 @@ class ReactMusicPlayer extends React.Component {
                           </button>
 
                           <button onClick={this.next} className="player-btn medium" title="Next Song">
-                              <i class="fas fa-step-forward"></i>
+                              <i className="fas fa-step-forward"></i>
                           </button>
                         </div>
 

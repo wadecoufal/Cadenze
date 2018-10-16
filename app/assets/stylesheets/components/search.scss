@@ -3,3 +3,25 @@
   height: 100%;
   overflow-y: scroll;
 }
+
+.search-form {
+  position: absolute;
+  width: 100%;
+  left: 220px;
+  top: 0;
+  right: 0;
+  height: 76px;
+  background-color: rgb(40, 40, 40);
+}
+
+.search-form input {
+  font-size: 36px;
+  color: white;
+  caret-color: rgb(0, 197, 85);
+  padding: 0 140px;
+  padding-top: 14px;
+}
+
+.search-nav-and-results {
+  padding-top: 100px;
+}

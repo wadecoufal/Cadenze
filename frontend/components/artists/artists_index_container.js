@@ -7,7 +7,7 @@ const msp = state => ({
 });
 
 const mdp = dispatch => ({
-  fetchArtists: () => dispatch(fetchArtists())
+  fetchArtists: (params) => dispatch(fetchArtists(params))
 });
 
 export default connect(msp, mdp)(ArtistsIndex);

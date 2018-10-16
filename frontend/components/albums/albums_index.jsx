@@ -3,6 +3,7 @@ import AlbumIndexItem from './album_index_item';
 
 class AlbumsIndex extends React.Component {
   componentDidMount () {
+
     if (this.props.albumIds && this.props.albumIds.length === 0) {
       this.props.fetchAlbums({album_ids: "NoAlbumsHere"})
     } else if (this.props.albumIds) {
@@ -10,7 +11,7 @@ class AlbumsIndex extends React.Component {
     } else {
       this.props.fetchAlbums();
     }
-    
+
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(41, 44, 44), rgb(9, 10, 10))'
   }

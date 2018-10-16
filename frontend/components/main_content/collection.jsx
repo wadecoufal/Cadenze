@@ -38,13 +38,21 @@ class Collection extends React.Component {
   render() {
     const page = 'collection';
     const followedPlaylistIds = this.props.filterFollows(Object.values(this.props.follows), 'playlist');
+    const favoritedAlbumIds = this.props.filterFollows(Object.values(this.props.follows), 'album');
+    const followedArtistIds = this.props.filterFollows(Object.values(this.props.follows), 'artist');
 
     return (
       <div className="collection">
         <Navbar page={page} />
         <Switch>
-          <Route path="/collection/albums" component={AlbumsIndexContainer} />
-          <Route path="/collection/artists" component={ArtistsIndexContainer} />
+          <Route path="/collection/albums" render={ () =>
+              <AlbumsIndexContainer
+                albumIds={favoritedAlbumIds} /> } />
+
+            <Route path="/collection/artists" render={ () =>
+                <ArtistsIndexContainer
+                  followedArtistIds={followedArtistIds} /> } />
+
           <Route path="/collection/playlists" render={ () =>
               <PlaylistsIndexContainer
                 currUserId={this.props.currUserId}

@@ -1,5 +1,6 @@
 .artists-index {
   margin-top: 13px;
+  padding-left: 2%;
 }
 
 .artist-index-item {
@@ -20,7 +21,7 @@
 .artist-rows {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
   margin: 0 45px;
 }
 

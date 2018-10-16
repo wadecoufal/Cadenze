@@ -8,7 +8,16 @@ class PlaylistsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlaylists({curr_user_id: this.props.currUserId});
+
+    if (this.props.followedPlaylistIds && this.props.followedPlaylistIds.length === 0) {
+      this.props.fetchPlaylists({followed_playlist_ids: "NoPlaylistsHere",
+      curr_user_id: this.props.currUserId})
+    } else if (this.props.followedPlaylistIds) {
+      this.props.fetchPlaylists({followed_playlist_ids: this.props.followedPlaylistIds,
+      curr_user_id: this.props.currUserId})
+    } else {
+      this.props.fetchPlaylists();
+    }
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(4, 180, 44), rgb(9, 10, 10))'
   }

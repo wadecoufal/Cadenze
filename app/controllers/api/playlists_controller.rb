@@ -1,7 +1,10 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    if params[:curr_user_id]
+    if params[:followed_playlist_ids] === 'NoPlaylistsHere'
       @playlists = Playlist.where(user_id: params[:curr_user_id])
+    elsif params[:followed_playlist_ids]
+      @playlists = Playlist.where('id IN (?) OR user_id = ?',
+          params[:followed_playlist_ids], params[:curr_user_id])
     else
       @playlists = Playlist.all.includes(:songs).includes(:user)
     end

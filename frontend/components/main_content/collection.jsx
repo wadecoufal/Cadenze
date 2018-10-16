@@ -10,16 +10,19 @@ import ArtistsIndexContainer from '../artists/artists_index_container';
 import PlaylistsIndexContainer from '../playlists/playlists_index_container';
 import SongsIndexContainer from '../songs/songs_index_container';
 
+import { filterFollows } from '../../util/selectors';
 
 const mapStateToProps = state => {
   return {
-  currUserId: state.session.id
+  currUserId: state.session.id,
+  follows: state.entities.follows
 }};
 
 const mapDispatchToProps = dispatch => {
   return {
   // fetchFollows: currUserId => dispatch(fetchFollows(currUserId)),
-  fetchAlbums: () => dispatch(fetchAlbums())
+  fetchAlbums: () => dispatch(fetchAlbums()),
+  filterFollows: (follows, follow_type) => filterFollows(follows, follow_type)
 }};
 
 class Collection extends React.Component {
@@ -34,6 +37,7 @@ class Collection extends React.Component {
 
   render() {
     const page = 'collection';
+    const followedPlaylistIds = this.props.filterFollows(Object.values(this.props.follows), 'playlist');
 
     return (
       <div className="collection">
@@ -41,7 +45,10 @@ class Collection extends React.Component {
         <Switch>
           <Route path="/collection/albums" component={AlbumsIndexContainer} />
           <Route path="/collection/artists" component={ArtistsIndexContainer} />
-          <Route path="/collection/playlists" render={ () => <PlaylistsIndexContainer currUserId={this.props.currUserId}/> } />
+          <Route path="/collection/playlists" render={ () =>
+              <PlaylistsIndexContainer
+                currUserId={this.props.currUserId}
+                followedPlaylistIds={followedPlaylistIds}/> } />
 
 
           <Route path="/collection/songs" component={SongsIndexContainer} />

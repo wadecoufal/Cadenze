@@ -19,7 +19,7 @@ class SongIndexItem extends React.Component {
     const { song } = this.props;
     return (
       <div className="song-index-item">
-        <button onClick={() => this.props.receiveQueue([song.soundUrl])}>
+        <button className="song-item-play-btn" onClick={() => this.props.receiveQueue([song.soundUrl])}>
           <img className="play-btn" src={window.playBtn}></img>
         </button>
 

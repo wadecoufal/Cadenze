@@ -6,6 +6,7 @@ class SongsIndex extends React.Component {
 
   constructor(props) {
     super(props);
+    this.addToQueue = this.addToQueue.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,29 @@ class SongsIndex extends React.Component {
     })
   }
 
+  addToQueue(songId) {
+    let startIndex = 0;
+    for (let i = 0; i < this.props.songs.length; i++) {
+      if (this.props.songs[i].id === songId) {
+        startIndex = i;
+      }
+    }
+    const queueSongs = this.props.songs.slice(startIndex);
+    const formattedQueueSongs = queueSongs.map( song => this.processSongInfoForQueue(song));
+    this.props.receiveQueue(formattedQueueSongs);
+  }
+
+  processSongInfoForQueue(song) {
+    return {
+      url: song.soundUrl,
+      cover: song.photoUrl,
+      artist: {
+        name: song.artistName,
+        song: song.title
+      }
+    }
+  }
+
   songIsFavorited(songId) {
     for (let i = 0; i < this.props.follows.length; i++) {
       if (this.props.follows[i].followee_type === 'song'
@@ -53,7 +77,8 @@ class SongsIndex extends React.Component {
             <SongIndexItem
               key={song.id}
               song={song}
-              favorited={this.songIsFavorited(song.id)} />
+              favorited={this.songIsFavorited(song.id)}
+              addToQueue={this.addToQueue}/>
           )
         })}
       </ul>

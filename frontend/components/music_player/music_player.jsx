@@ -134,40 +134,53 @@ class ReactMusicPlayer extends React.Component {
 
         const { currentSong, playing, progress } = this.state;
 
-        let playPauseClass = classnames('fa', {'fa-pause': playing}, {'fa-play': !playing});
+        let playPauseClass = classnames('fa', {'fas fa-pause': playing}, {'fas fa-play-circle': !playing});
         let volumeClass = classnames('fa', {'fa-volume-up': !this.state.mute}, {'fa-volume-off': this.state.mute});
 
         return (
             <div className="music-player">
                 <audio src={currentSong.url} autoPlay={this.state.playing} preload="auto" ref="player"></audio>
 
-                <div className="player-progress-container" onClick={this.setProgress}>
-                    <span className="player-progress-value" style={{width: progress + '%'}}></span>
-                </div>
+                <div className="song-info-and-img">
+                  <img className="song-info-img" src={currentSong.cover}></img>
+                  <div className="song-info-title-artistname">
+                    <h6 className="song-info-title">{currentSong.artist.song}</h6>
+                    <h6 className="song-info-artist-name">{currentSong.artist.name}</h6>
+                  </div>
 
+                </div>
 
                 <div className="player-options">
                     <div className="player-buttons player-controls">
-                        <button onClick={this.toggle} className="player-btn big" title="Play/Pause">
-                            <i className={playPauseClass} />
-                        </button>
 
-                        <button onClick={this.previous} className="player-btn medium" title="Previous Song">
-                            <i className="fa fa-backward" />
-                        </button>
+                        <div className="pbf">
+                          <button onClick={this.previous} className="player-btn medium" title="Previous Song">
+                              <i class="fas fa-step-backward"></i>
+                          </button>
 
-                        <button onClick={this.next} className="player-btn medium" title="Next Song">
-                            <i className="fa fa-forward" />
-                        </button>
-                    </div>
+                          <button onClick={this.toggle} className="player-btn big" title="Play/Pause">
+                              <i className={playPauseClass} />
+                          </button>
 
-                    <div className="player-buttons">
-                        <button className="player-btn small volume" onClick={this.toggleMute} title="Mute/Unmute">
-                            <i className={volumeClass} />
-                        </button>
+                          <button onClick={this.next} className="player-btn medium" title="Next Song">
+                              <i class="fas fa-step-forward"></i>
+                          </button>
+                        </div>
+
+                        <div className="player-progress-container" onClick={this.setProgress}>
+                            <span className="player-progress-value" style={{width: progress + '%'}}></span>
+                        </div>
+
                     </div>
 
                 </div>
+                <div className="volume-manager">
+                  <button className="mute-btn" onClick={this.toggleMute} title="Mute/Unmute">
+                      <i className={volumeClass} />
+                  </button>
+                </div>
+
+
             </div>
         );
     }

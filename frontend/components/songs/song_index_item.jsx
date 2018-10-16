@@ -1,7 +1,6 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import { receiveQueue } from '../../actions/queue_actions';
 
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
@@ -63,7 +62,8 @@ class SongIndexItem extends React.Component {
 
     return (
       <div className="song-index-item">
-        <button className="song-item-play-btn" onClick={() => this.props.receiveQueue([song.soundUrl])}>
+        <button className="song-item-play-btn" onClick={() => this.props.addToQueue(song.id)}>
+
           <img className="play-btn" src={window.playBtn}></img>
         </button>
 

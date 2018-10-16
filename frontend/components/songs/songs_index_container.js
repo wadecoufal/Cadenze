@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SongsIndex from './songs_index';
 import { fetchSongs } from '../../actions/song_actions';
+import { receiveQueue } from '../../actions/queue_actions';
 
 const msp = (state, ownProps) => {
   return{
@@ -10,7 +11,8 @@ const msp = (state, ownProps) => {
 }};
 
 const mdp = dispatch => ({
-  fetchSongs: (params) => dispatch(fetchSongs(params))
+  fetchSongs: (params) => dispatch(fetchSongs(params)),
+  receiveQueue: (queue) => dispatch(receiveQueue(queue))
 });
 
 export default connect(msp, mdp)(SongsIndex);

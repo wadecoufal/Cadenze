@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { createPlaylistSong, fetchPlaylists } from '../../actions/playlist_actions';
 import PlaylistIndexItem from './playlist_index_item';
-
+import { usersPlaylists } from '../../util/selectors'
 
 const mapStateToProps = state => ({
-  playlists: Object.values(state.entities.playlists),
+  playlists: usersPlaylists(Object.values(state.entities.playlists), state.session.id),
   currUserId: state.session.id,
   songId: state.ui.modal.songId
 });

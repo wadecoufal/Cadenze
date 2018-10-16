@@ -1,6 +1,7 @@
 import React from 'react';
 import SongIndexItem from './song_index_item';
 
+
 class SongsIndex extends React.Component {
 
   constructor(props) {
@@ -15,6 +16,7 @@ class SongsIndex extends React.Component {
     } else {
       this.props.fetchSongs();
     }
+
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(rgb(34, 79, 107), rgb(6, 15, 20))'
   }
@@ -31,6 +33,16 @@ class SongsIndex extends React.Component {
     })
   }
 
+  songIsFavorited(songId) {
+    for (let i = 0; i < this.props.follows.length; i++) {
+      if (this.props.follows[i].followee_type === 'song'
+          && this.props.follows[i].followee_id === songId) {
+            return true
+          }
+    }
+    return false;
+  }
+
   render() {
     this.formatDuration()
 
@@ -38,7 +50,10 @@ class SongsIndex extends React.Component {
       <ul className="song-rows" >
         {this.props.songs.map( song => {
           return (
-            <SongIndexItem key={song.id} song={song} />
+            <SongIndexItem
+              key={song.id}
+              song={song}
+              favorited={this.songIsFavorited(song.id)} />
           )
         })}
       </ul>

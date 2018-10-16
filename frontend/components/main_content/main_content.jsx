@@ -20,10 +20,6 @@ class MainContent extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchFollows()
-  }
-
   render () {
     return (
       <div id="main-content">

@@ -88,6 +88,7 @@
   .fa-ellipsis-h {
     transition: 0.2s;
     opacity: 0.7;
+    margin-top: 1px;
   }
 
 }
@@ -98,4 +99,21 @@
 
 .song-item-play-btn:hover {
   background-color:transparent;
+}
+
+.song-favorite-button {
+  background-color: transparent;
+  margin-top: 11px;
+}
+
+.song-favorite-button:hover {
+  background-color: transparent;
+}
+
+.lock:hover .icon-unlock, .lock .icon-lock {
+  display: none;
+}
+
+.lock:hover .icon-lock {
+  display: inline;
 }

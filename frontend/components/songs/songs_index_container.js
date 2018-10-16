@@ -5,7 +5,8 @@ import { fetchSongs } from '../../actions/song_actions';
 const msp = (state, ownProps) => {
   return{
   songs: Object.values(state.entities.songs),
-  songIds: ownProps.songIds
+  songIds: ownProps.songIds,
+  follows: Object.values(state.entities.follows)
 }};
 
 const mdp = dispatch => ({

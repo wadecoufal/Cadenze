@@ -10,3 +10,13 @@ export const filterFollows = (follows, follow_type) => {
   }
   return arrayIds;
 }
+
+export const usersPlaylists = (playlists, currUserId) => {
+  let usersPlaylists = [];
+  for (let i = 0; i < playlists.length; i++) {
+    if (playlists[i].user.id === currUserId) {
+      usersPlaylists.push(playlists[i]);
+    }
+  }
+  return usersPlaylists;
+}

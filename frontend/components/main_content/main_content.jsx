@@ -47,4 +47,4 @@ class MainContent extends React.Component {
   }
 }
 
-export default connect(null, mdp)(MainContent);
+export default MainContent;

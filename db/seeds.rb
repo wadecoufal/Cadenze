@@ -44,7 +44,7 @@ end
 def create_song(params, filename)
   song = Song.new(params)
 
-  file = File.open("../sound_files/#{{filename}}")
+  file = File.open("../sound_files/#{filename}")
   song.song.attach(io: file, filename: filename)
   song.save
 end

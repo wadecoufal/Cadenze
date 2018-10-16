@@ -1,23 +1,28 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import { receiveQueue } from '../../actions/queue_actions';
+
+
 
 const mapDispatchToProps = dispatch => ({
-  openModal: (modal, songId) => dispatch(openModal(modal, songId))
+  openModal: (modal, songId) => dispatch(openModal(modal, songId)),
+  receiveQueue: (queue) => dispatch(receiveQueue(queue))
 });
 
 class SongIndexItem extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
   render() {
     const { song } = this.props;
-
     return (
       <div className="song-index-item">
-        <img className="play-btn" src={window.playBtn}></img>
+        <button onClick={() => this.props.receiveQueue([song.soundUrl])}>
+          <img className="play-btn" src={window.playBtn}></img>
+        </button>
+
 
         <div className="song-info">
           <div className="song-title-duration">

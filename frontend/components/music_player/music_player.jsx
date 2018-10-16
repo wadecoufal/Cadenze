@@ -3,20 +3,31 @@ import classnames from 'classnames';
 import shuffle from 'shuffle-array';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  return {
   queue: state.entities.queue
-});
+}};
 
 class ReactMusicPlayer extends React.Component {
 
     constructor(props) {
       super(props);
       this.state = {
-          currentSong: this.props.queue[0],
+          currentSong: {url: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBSQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--361e519fe9d6bd267ce3bdb6286ffd80c6fce274/fileNumber1",
+          cover: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8e1fc061e1b2b0e51ffa6a02508d31e38e9ff885/rite_of_spring.jpg",
+          artist: {
+            name: 'Bernstein',
+            song: 'Rite'
+          }},
           current: 0,
           progress: 0,
           mute: false,
-          queue: this.props.queue,
+          queue: [{url: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBSQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--361e519fe9d6bd267ce3bdb6286ffd80c6fce274/fileNumber1",
+          cover: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8e1fc061e1b2b0e51ffa6a02508d31e38e9ff885/rite_of_spring.jpg",
+          artist: {
+            name: 'Bernstein',
+            song: 'Rite'
+          }}],
           playing: false
       }
       this.toggle = this.toggle.bind(this);
@@ -35,8 +46,11 @@ class ReactMusicPlayer extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-      if (this.currentSong != newProps.queue[0]) {
-        this.setState({currentSong: newProps.queue[0], queue: newProps.queue})
+      if (!newProps.queue){
+        return;
+      }
+      if (this.state.currentSong.url != newProps.queue[0]) {
+        this.setState({currentSong: newProps.queue[0], queue: newProps.queue}, this.play);
       }
     }
 
@@ -159,4 +173,4 @@ class ReactMusicPlayer extends React.Component {
     }
 }
 
-export default ReactMusicPlayer;
+export default connect(mapStateToProps)(ReactMusicPlayer);

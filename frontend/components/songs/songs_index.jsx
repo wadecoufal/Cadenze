@@ -32,12 +32,9 @@ class SongsIndex extends React.Component {
 
   formatDuration() {
     this.props.songs.forEach( song => {
-
       let seconds = song.duration%60;
       let minutes = Math.floor(song.duration/60);
-
       seconds = seconds < 10 ? `0${seconds}` : seconds;
-
       song.durationStr = `${minutes}:${seconds}`
     })
   }

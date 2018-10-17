@@ -29,7 +29,7 @@ class AlbumsIndex extends React.Component {
       <ul className="item-rows" >
         {this.props.albums.map( album => {
           return (
-            <AlbumIndexItem key={album.id} album={album} />
+            <AlbumIndexItem key={album.id} album={album} displayName={this.props.displayName} />
           )
         })}
       </ul>

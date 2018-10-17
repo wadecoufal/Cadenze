@@ -1,6 +1,7 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
@@ -87,8 +88,8 @@ class SongIndexItem extends React.Component {
             </div>
           </div>
           <div className="song-artist-album">
-            <h4 className="artist-album-link">{song.artistName}</h4>
-            <h4 className="artist-album-link">{song.albumTitle}</h4>
+            <Link to={`/artist/${song.artistId}`}><h4 className="artist-album-link">{song.artistName}</h4></Link>
+            <Link to={`/album/${song.albumId}`}><h4 className="artist-album-link">{song.albumTitle}</h4></Link>
           </div>
         </div>
 

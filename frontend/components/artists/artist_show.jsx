@@ -8,7 +8,6 @@ import { fetchArtist } from '../../actions/artist_actions';
 
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
-
 const mapStateToProps = (state, ownProps) => {
   return {artist: state.entities.artists[ownProps.match.params.artistId],
   follows: Object.values(state.entities.follows)}
@@ -23,15 +22,15 @@ const mapDispatchToProps = dispatch => ({
 class ArtistShow extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   albums: {}
-    // };
+    this.state = {
+      loading: true
+    }
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchArtist(this.props.match.params.artistId);
+    this.props.fetchArtist(this.props.match.params.artistId).then( () => this.setState({loading: false}));
   }
 
   userFollowingArtist() {
@@ -67,6 +66,10 @@ class ArtistShow extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return null;
+    }
+
     const followBtn = this.userFollowingArtist() ? (
       <button
         className="follow-button"
@@ -91,7 +94,7 @@ class ArtistShow extends React.Component {
 
 
         <div className="artists-albums">
-          <AlbumsIndexContainer albumIds={this.props.artist.album_ids}/>
+          <AlbumsIndexContainer albumIds={this.props.artist.album_ids} displayName={"false"}/>
         </div>
 
       </div>

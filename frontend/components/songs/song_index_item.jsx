@@ -2,64 +2,20 @@ import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import { createFollow, deleteFollow } from '../../actions/follow_actions';
+import SongFavoriteButton from './song_favorite_button';
 
 const mapDispatchToProps = dispatch => ({
   openModal: (modal, songId) => dispatch(openModal(modal, songId)),
-  receiveQueue: (queue) => dispatch(receiveQueue(queue)),
-  createFollow: follow => dispatch(createFollow(follow)),
-  deleteFollow: id => dispatch(deleteFollow(id))
-});
-
-const mapStateToProps = (state, ownProps) => ({
-  favorited: ownProps.favorited,
-  follows: Object.values(state.entities.follows)
+  receiveQueue: (queue) => dispatch(receiveQueue(queue))
 });
 
 class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleFavorite = this.handleFavorite.bind(this);
-  }
-
-  handleFavorite() {
-    this.props.createFollow({
-      followee_id: this.props.song.id,
-      followee_type: 'song'
-    })
-  }
-
-  handleDelete() {
-    let deleteFollowId;
-    let i = 0;
-    while (i < this.props.follows.length) {
-      if (this.props.follows[i].followee_id === this.props.song.id
-        && this.props.follows[i].followee_type === 'song') {
-        deleteFollowId = this.props.follows[i].id;
-      }
-      i++;
-    }
-    this.props.deleteFollow(deleteFollowId);
   }
 
   render() {
     const { song } = this.props;
-    const songFavoriteBtn = this.props.favorited ? (
-      <button
-        className="song-favorite-button lock"
-        onClick={this.handleDelete}>
-        <i className="fas fa-check icon-unlock"></i>
-        <i className="fas fa-times icon-lock"></i>
-      </button>
-    ) : (
-      <button
-        className="song-favorite-button"
-        onClick={this.handleFavorite}
-        ><i className="fas fa-plus"></i>
-      </button>
-    )
 
     return (
       <div className="song-index-item">
@@ -82,7 +38,7 @@ class SongIndexItem extends React.Component {
 
               </button>
 
-              {songFavoriteBtn}
+              <SongFavoriteButton songId={song.id} />
 
               <h4 className="duration">{song.durationStr}</h4>
             </div>
@@ -98,4 +54,4 @@ class SongIndexItem extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongIndexItem);
+export default connect(null, mapDispatchToProps)(SongIndexItem);

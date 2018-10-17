@@ -117,3 +117,17 @@
 .lock:hover .icon-lock {
   display: inline;
 }
+
+.song-favorite-button {
+  width: 12px;
+  height: 12px;
+  margin-top: 20px;
+}
+
+.fa-check {
+  color: #1db954;
+}
+
+.fa-times {
+  color: red;
+}

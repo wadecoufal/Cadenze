@@ -1,7 +1,7 @@
 class Api::SongsController < ApplicationController
   def index
     if params[:search_query]
-      @songs = Song.where('title LIKE ?', "#{params[:search_query]}%")
+      @songs = Song.where('title LIKE ? OR title LIKE ?', "% #{params[:search_query].capitalize}%", "#{params[:search_query].capitalize}%")
     elsif params[:song_ids] === 'NoSongsHere'
       @songs = []
     elsif params[:song_ids]

@@ -55,6 +55,7 @@ class SongsIndex extends React.Component {
     return {
       url: song.soundUrl,
       cover: song.photoUrl,
+      songId: song.id,
       artist: {
         name: song.artistName,
         song: song.title

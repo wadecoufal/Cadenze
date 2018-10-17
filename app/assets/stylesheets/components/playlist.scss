@@ -1,3 +1,25 @@
 .playlist-show-songs {
   margin-left: 32px;
 }
+
+.collection-img-info {
+  margin-left: 184px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collection-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playlist-show-title {
+  color: white;
+}
+
+.playlist-show-username {
+  color: rgb(162, 167, 180);
+}

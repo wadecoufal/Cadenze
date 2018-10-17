@@ -25,10 +25,14 @@ class PlaylistShow extends React.Component {
     this.state = this.props.playlist;
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
+    this.state = {
+      loading: true
+    }
   }
 
   componentDidMount() {
-    this.props.fetchPlaylist(this.props.match.params.playlistId);
+    this.props.fetchPlaylist(this.props.match.params.playlistId)
+      .then( () => this.setState({loading: false}));
   }
 
   userFollowingPlaylist() {
@@ -64,6 +68,9 @@ class PlaylistShow extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return null;
+    }
 
     const followBtn = this.userFollowingPlaylist() ? (
       <button
@@ -82,10 +89,10 @@ class PlaylistShow extends React.Component {
         <div className="collection-img-info">
           <img className="collection-image" ></img>
           <div className="collection-info">
-            <h3>{this.props.playlist.title}</h3>
-            <h6>{this.props.playlist.user.username}</h6>
-            {followBtn}
+            <h3 className='playlist-show-title'>{this.props.playlist.title}</h3>
+            <h6 className='playlist-show-username'>{this.props.playlist.user.username}</h6>
           </div>
+          {followBtn}
         </div>
         <div className="collection-songs playlist-show-songs">
           <SongsIndexContainer songIds={this.props.playlist.song_ids}/>

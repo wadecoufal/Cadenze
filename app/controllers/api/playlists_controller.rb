@@ -13,7 +13,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.includes(:user).find(params[:id])
   end
 
   def create

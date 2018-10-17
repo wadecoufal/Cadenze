@@ -12,12 +12,13 @@
   width: 100%;
   height: 64px;
   padding-bottom: 10px;
+  margin-left: 53px;
 }
 
 .song-info {
   width: 100%;
   margin-right: 8px;
-  padding-left: 10px;
+  padding-left: 45px;
 }
 
 .song-title-duration {
@@ -69,6 +70,9 @@
   transition: 0.2s;
 }
 
+.play-btn-music-note {
+  position: relative;
+}
 
 .play-btn {
   width: 28px;
@@ -76,6 +80,16 @@
   opacity: 0;
   padding-top: 21px;
   padding-left: 8px;
+  position: absolute;
+  bottom: 13px;
+}
+
+.fa-itunes-note {
+  opacity: 0.7;
+  position: absolute;
+  left: 15px;
+  top: 28px;
+  color: white;
 }
 
 .song-index-item:hover {
@@ -85,12 +99,15 @@
     transition: 0.2s;
     opacity: 0.7;
   }
+  .fa-itunes-note {
+    transition: 0.2s;
+    opacity: 0;
+  }
   .fa-ellipsis-h {
     transition: 0.2s;
     opacity: 0.7;
     margin-top: 1px;
   }
-
 }
 
 .song-item-play-btn {

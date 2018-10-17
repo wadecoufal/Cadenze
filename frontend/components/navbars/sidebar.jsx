@@ -33,16 +33,15 @@ class Sidebar extends React.Component {
 
 
         <ul className="sidebar-links">
-          <NavLink className="link" activeClassName="active-sidebar-link" to="/search">Search</NavLink>
-          <NavLink activeClassName="active-sidebar-link" className="link" to="/browse">Home</NavLink>
-          <NavLink activeClassName="active-sidebar-link" className="link" to="/collection">Your Library</NavLink>
+          <NavLink className="link" activeClassName="active-sidebar-link" to="/search"><i className="sidebar-icon fas fa-search"></i>Search</NavLink>
+          <NavLink activeClassName="active-sidebar-link" className="link" to="/browse"><i className="sidebar-icon fas fa-home"></i>Home</NavLink>
+          <NavLink activeClassName="active-sidebar-link" className="link" to="/collection"><i className="sidebar-icon fas fa-book-reader"></i>Your Library</NavLink>
         </ul>
 
 
 
         <div className="user-tag">
-          <img className="user-img" src={this.props.currUser.photoUrl}></img>
-          <h5>{this.props.currUser.username}</h5>
+          <h5><i className="user-icon far fa-user"></i>{this.props.currUser.username}</h5>
           <button className="sidebar-logout" onClick={this.props.logout}>Log Out</button>
         </div>
 

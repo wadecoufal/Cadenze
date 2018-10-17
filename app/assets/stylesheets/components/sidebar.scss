@@ -57,20 +57,33 @@
   display: flex;
   position: fixed;
   bottom: 90px;
+  border-top: 1px solid rgb(50,50,50);
 }
 
-.user-tag img {
-  width: 40px;
-  height: 40px;
-  margin-right: 6px;
+.user-tag h5 {
+  margin-right: 16px;
+  font-weight: 200;
 }
 
 .sidebar-logout {
-  padding-top: 15px;
-  padding-left: 26px;
   background-color: transparent;
+  border: 1px solid white;
+  height: 20px;
+  width: 75px;
+  font-size: 11px;
+  margin-top: 26px;
 }
 
 .sidebar-logout:hover {
   background-color: transparent;
+  color: rgb(20, 186, 92)
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+}
+
+.user-icon {
+  font-size: 23px;
+  margin-right: 10px;
 }

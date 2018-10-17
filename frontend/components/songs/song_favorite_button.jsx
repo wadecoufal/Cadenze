@@ -41,7 +41,8 @@ class SongFavoriteButton extends React.Component {
 
   favorited() {
     for (let i = 0; i < this.props.follows.length; i++) {
-      if (this.props.follows[i].followee_id === this.props.songId) {
+      if (this.props.follows[i].followee_id === this.props.songId
+          && this.props.follows[i].followee_type === 'song') {
         return true;
       }
     }

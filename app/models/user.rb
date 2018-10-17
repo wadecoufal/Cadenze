@@ -14,7 +14,6 @@
 class User < ApplicationRecord
   validates :username, :session_token, :email, presence: true
 
-  # error message for password_digest comes up as "Password digest Password can't be blank"
   validates :password_digest, presence: {message: "Password can't be blank"}
 
   validates :username, :session_token, :email, uniqueness: true
@@ -25,11 +24,11 @@ class User < ApplicationRecord
 
   has_many :playlists
   has_one_attached :photo
+
   has_many :follows,
   primary_key: :id,
   foreign_key: :follower_id,
   class_name: :Follow
-
 
   def password=(password)
     @password = password

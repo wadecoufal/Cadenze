@@ -24,6 +24,10 @@ class ReactMusicPlayer extends React.Component {
           current: 0,
           progress: 0,
           mute: false,
+          repeat: false,
+          shuffle: false,
+          currentTime: 0,
+          originalQueue: [],
           queue: [{url: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBSQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--361e519fe9d6bd267ce3bdb6286ffd80c6fce274/fileNumber1",
           cover: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8e1fc061e1b2b0e51ffa6a02508d31e38e9ff885/rite_of_spring.jpg",
           songId: 1,
@@ -40,6 +44,9 @@ class ReactMusicPlayer extends React.Component {
       this.previous = this.previous.bind(this);
       this.setProgress = this.setProgress.bind(this);
       this.toggleMute = this.toggleMute.bind(this);
+      this.repeat = this.repeat.bind(this);
+      this.shuffle = this.shuffle.bind(this);
+      this.end = this.end.bind(this);
     }
 
     componentDidMount() {
@@ -54,7 +61,7 @@ class ReactMusicPlayer extends React.Component {
         return;
       }
       if (this.state.currentSong.url != newProps.queue[0]) {
-        this.setState({currentSong: newProps.queue[0], queue: newProps.queue}, this.play);
+        this.setState({currentSong: newProps.queue[0], queue: newProps.queue, originalQueue: newProps.queue}, this.play);
       }
     }
 
@@ -74,8 +81,7 @@ class ReactMusicPlayer extends React.Component {
         let currentTime = (duration * offsetX) / width;
         let progress = (currentTime * 100) / duration;
 
-        this.refs.player.currentTime = currentTime;
-        this.setState({ progress: progress });
+        this.setState({ progress: progress});
         this.play();
     }
 
@@ -106,25 +112,42 @@ class ReactMusicPlayer extends React.Component {
     }
 
     next() {
-        var total = this.state.queue.length;
-        var current = (this.state.current < total - 1) ? this.state.current + 1 : 0;
+        var current = this.state.repeat ? (
+          this.state.current
+        ) : (
+          this.state.current < this.state.queue.length ? (
+            this.state.current + 1
+          ) : ( 0 )
+        )
         var currentSong = this.state.queue[current];
-
         this.setState({ current: current, currentSong: currentSong, progress: 0 });
-
         this.refs.player.src = currentSong.url;
         this.play();
     }
 
     previous() {
-        var total = this.state.queue.length;
-        var current = (this.state.current > 0) ? this.state.current - 1 : total - 1;
+        var current = this.state.repeat ? (
+          this.state.current
+        ) : (
+          this.state.current > 0 ? this.state.current - 1 : this.state.queue.length - 1
+        )
         var currentSong = this.state.queue[current];
-
         this.setState({ current: current, currentSong: currentSong, progress: 0 });
-
         this.refs.player.src = currentSong.url;
         this.play();
+    }
+
+    repeat() {
+      this.setState({ repeat: !this.state.repeat });
+    }
+
+    shuffle() {
+      var shuffledQueue = this.state.originalQueue.slice(0,1).concat(shuffle(this.state.originalQueue.slice(1)));
+      if (this.state.shuffle) {
+        this.setState({ shuffle: false, queue: this.state.originalQueue})
+      } else {
+        this.setState( { shuffle: true, queue: shuffledQueue})
+      }
     }
 
     toggleMute() {
@@ -158,6 +181,11 @@ class ReactMusicPlayer extends React.Component {
                     <div className="player-buttons player-controls">
 
                         <div className="pbf">
+
+                          <button onClick={this.shuffle} className={this.state.shuffle ? "player-btn small active-btn" : "player-btn small"}>
+                            <i className="fas fa-random"></i>
+                          </button>
+
                           <button onClick={this.previous} className="player-btn medium" title="Previous Song">
                               <i className="fas fa-step-backward"></i>
                           </button>
@@ -169,10 +197,15 @@ class ReactMusicPlayer extends React.Component {
                           <button onClick={this.next} className="player-btn medium" title="Next Song">
                               <i className="fas fa-step-forward"></i>
                           </button>
+
+                          <button onClick={this.repeat} className={this.state.repeat ? `player-btn small active-btn` : `player-btn small`}>
+                            <i className="fas fa-infinity"></i>
+                          </button>
+
                         </div>
 
                         <div className="player-progress-container" onClick={this.setProgress}>
-                            <span className="player-progress-value" style={{width: progress + '%'}}></span>
+                          <span className="player-progress-value" style={{width: progress + '%'}}></span>
                         </div>
 
                     </div>

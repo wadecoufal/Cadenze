@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SongsIndexContainer from '../songs/songs_index_container';
 import { fetchPlaylist } from '../../actions/playlist_actions';
+import { Link } from 'react-router-dom';
 
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
@@ -67,6 +68,11 @@ class PlaylistShow extends React.Component {
     })
   }
 
+  titleInitials() {
+    return this.props.playlist.title.split(' ')
+      .map( word => word[0].toUpperCase()).join('')
+  }
+
   render() {
     if (this.state.loading) {
       return null;
@@ -84,10 +90,23 @@ class PlaylistShow extends React.Component {
         >FOLLOW PLAYLIST</button>
     )
 
+    const songsContainer = this.props.playlist.song_ids.length === 0 ? (
+      <div className="no-songs-here">
+        <h3>It's a bit empty here...</h3>
+        <p>Find more of the music you love</p>
+        <Link to="/browse/albums"><button>Browse</button></Link>
+      </div>
+
+    ) : (
+      <SongsIndexContainer songIds={this.props.playlist.song_ids}/>
+    )
+
     const playlist = this.props.playlist ? (
       <div className="collection-show">
         <div className="collection-img-info">
-          <img className="collection-image" ></img>
+          <div className="playlist-show-img" >
+            <h4 className="playlist-show-img-title">{this.titleInitials()}</h4>
+          </div>
           <div className="collection-info">
             <h3 className='playlist-show-title'>{this.props.playlist.title}</h3>
             <h6 className='playlist-show-username'>{this.props.playlist.user.username}</h6>
@@ -95,7 +114,7 @@ class PlaylistShow extends React.Component {
           {followBtn}
         </div>
         <div className="collection-songs playlist-show-songs">
-          <SongsIndexContainer songIds={this.props.playlist.song_ids}/>
+          { songsContainer }
         </div>
       </div>
     ) : (

@@ -7,6 +7,11 @@ class PlaylistIndexItem extends React.Component {
     super(props);
   }
 
+  titleInitials() {
+    return this.props.playlist.title.split(' ')
+      .map( word => word[0].toUpperCase()).join('')
+  }
+
   render() {
     const { playlist } = this.props;
 
@@ -14,7 +19,9 @@ class PlaylistIndexItem extends React.Component {
       <Link to={`/playlist/${playlist.id}`} className="collection-index-item">
 
         <div className="collection-image-container">
-          <img className="collection-img"></img>
+          <div className="playlist-img">
+            <h4 className="playlist-img-title">{this.titleInitials()}</h4>
+          </div>
           <div className="image-overlay">
             <img className='collection-img-overlay' src={window.playBtn}></img>
           </div>

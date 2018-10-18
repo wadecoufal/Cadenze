@@ -8,7 +8,7 @@ const userErrorsReducer = (state = [], action) => {
     case RECEIVE_SIGNUP_ERRORS:
       return action.errors;
     default:
-      return [];
+      return state;
   }
 }
 

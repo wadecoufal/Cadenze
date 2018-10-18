@@ -19,11 +19,10 @@ class User < ApplicationRecord
   validates :username, :session_token, :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  after_initialize :ensure_session_token, :ensure_photo
+  after_initialize :ensure_session_token
   attr_reader :password
 
   has_many :playlists
-  has_one_attached :photo
 
   has_many :follows,
   primary_key: :id,
@@ -52,12 +51,6 @@ class User < ApplicationRecord
     self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
-  end
-
-  def ensure_photo
-    unless self.photo.attached?
-      self.photo.attach(io: File.open('app/assets/images/Spotify_Icon_RGB_White.png'), filename: 'spotlogo')
-    end
   end
 
 end

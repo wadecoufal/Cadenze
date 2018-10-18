@@ -28,6 +28,7 @@ def create_album(params, filename)
   file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
   album.photo.attach(io: file, filename: filename)
   album.save
+  return album
 end
 
 def create_artist(params, headshot, header)
@@ -37,6 +38,7 @@ def create_artist(params, headshot, header)
   artist.photo.attach(io: headshot_file, filename: headshot)
   artist.header_photo.attach(io: header_file, filename: header)
   artist.save
+  return artist
 end
 
 def create_song(params, filename)
@@ -44,6 +46,7 @@ def create_song(params, filename)
   file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{filename}")
   song.song.attach(io: file, filename: filename)
   song.save
+  return song
 end
 
 User.create([

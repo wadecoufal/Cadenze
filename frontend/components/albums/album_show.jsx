@@ -25,10 +25,13 @@ class AlbumShow extends React.Component {
     this.state = this.props.album;
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFavorite = this.handleFavorite.bind(this);
+    this.state = {
+      loading: true
+    }
   }
 
   componentDidMount() {
-    this.props.fetchAlbum(this.props.match.params.albumId);
+    this.props.fetchAlbum(this.props.match.params.albumId).then( () => this.setState({loading: false}));
   }
 
   userFavoritedAlbum() {
@@ -64,6 +67,11 @@ class AlbumShow extends React.Component {
   }
 
   render() {
+
+    if (this.state.loading) {
+      return null;
+    }
+
     const favoriteBtn = this.userFavoritedAlbum() ? (
       <button
         className="follow-button"

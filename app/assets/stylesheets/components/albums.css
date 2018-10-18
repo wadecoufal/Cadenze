@@ -101,3 +101,25 @@
   height: 44%;
   transition: 0.25s;
 }
+
+.collection-info {
+  width: 320px;
+}
+
+.collection-info h3 {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+.collection-info h6 {
+  color: rgb(162, 167, 180);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.artists-albums h1 {
+  padding-left: 62px;
+  margin-top: 44px;
+  margin-bottom: 15px;
+}

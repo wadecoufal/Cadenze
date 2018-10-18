@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import SongsIndexContainer from '../songs/songs_index_container';
-// import PlaylistsIndexContainer from '../playlists/playlists_index_container';
 import AlbumsIndexContainer from '../albums/albums_index_container';
+import SongsIndexContainer from '../songs/songs_index_container';
 import { fetchArtist } from '../../actions/artist_actions';
 
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
@@ -30,7 +29,10 @@ class ArtistShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchArtist(this.props.match.params.artistId).then( () => this.setState({loading: false}));
+    document.getElementById('main-content-2').style.backgroundImage =
+    'linear-gradient(#ef1d4f, #rgb(24, 26, 26))'
+    this.props.fetchArtist(this.props.match.params.artistId)
+      .then( () => this.setState({loading: false}));
   }
 
   userFollowingArtist() {
@@ -65,6 +67,7 @@ class ArtistShow extends React.Component {
     })
   }
 
+
   render() {
     if (this.state.loading) {
       return null;
@@ -82,19 +85,28 @@ class ArtistShow extends React.Component {
         >FOLLOW</button>
     )
 
-
     const artist = this.props.artist ? (
       <div className="artist-show">
 
         <div className="artist-show-header">
-          <img src={this.props.artist.photoUrl} className="artist-show-image"></img>
-          <h1>{this.props.artist.name}</h1>
-          { followBtn }
+          <div className="artist-image-name-container">
+            <img src={this.props.artist.photoUrl} className="artist-show-image"></img>
+            <div>
+              <h1>{this.props.artist.name}</h1>
+              { followBtn }
+            </div>
+          </div>
         </div>
 
 
         <div className="artists-albums">
+          <h1>Albums</h1>
           <AlbumsIndexContainer albumIds={this.props.artist.album_ids} displayName={"false"}/>
+        </div>
+
+        <div className="artists-songs">
+          <h1>Songs</h1>
+          <SongsIndexContainer songIds={this.props.artist.song_ids} />
         </div>
 
       </div>

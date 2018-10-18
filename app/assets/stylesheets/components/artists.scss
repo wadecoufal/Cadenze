@@ -81,3 +81,42 @@
   height: 44%;
   transition: 0.25s;
 }
+
+.artist-show-header {
+  height: 380px;
+}
+
+.artist-show-image {
+  width: 400px;
+  height: 400px;
+  border-radius: 100%;
+}
+
+.artists-albums {
+
+  color: white;
+  font-size: 42px;
+  
+}
+
+.artist-image-name-container {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.artist-image-name-container div {
+  width: 250px;
+}
+
+.artist-image-name-container div h1 {
+  font-size: 42px;
+  color: white;
+  text-align: center;
+}
+
+.artist-image-name-container div button {
+  width: 250px;
+}

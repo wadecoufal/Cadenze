@@ -1,7 +1,15 @@
 import React from 'react';
 import AlbumIndexItem from './album_index_item';
+import { ScaleLoader } from 'react-spinners';
 
 class AlbumsIndex extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    }
+  }
 
   componentDidMount () {
     if (this.props.searchQuery) {
@@ -20,11 +28,24 @@ class AlbumsIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
-      this.props.fetchAlbums({search_query: newProps.searchQuery});
+      this.props.fetchAlbums({search_query: newProps.searchQuery}).then( () => this.setState({loading: false});
     }
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <div className='sweet-loading'>
+        <ScaleLoader
+          sizeUnit={"px"}
+          size={150}
+          color={'#123abc'}
+          loading={this.state.loading}
+        />
+      </div>
+      )
+    }
+
     const albums = this.props.albums ? (
       <ul className="item-rows" >
         {this.props.albums.map( album => {

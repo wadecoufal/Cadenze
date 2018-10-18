@@ -10,6 +10,7 @@ class SongsIndex extends React.Component {
   }
 
   componentDidMount() {
+
     if (this.props.searchQuery) {
       this.props.fetchSongs({search_query: this.props.searchQuery});
     } else if (this.props.songIds && this.props.songIds.length === 0) {

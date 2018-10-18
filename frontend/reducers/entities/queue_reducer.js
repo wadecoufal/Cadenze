@@ -2,12 +2,12 @@ import {
   RECEIVE_QUEUE
 } from '../../actions/queue_actions';
 
-const defaultQueue = [{url: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBSQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--361e519fe9d6bd267ce3bdb6286ffd80c6fce274/fileNumber1",
-cover: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8e1fc061e1b2b0e51ffa6a02508d31e38e9ff885/rite_of_spring.jpg",
+const defaultQueue = [{cover: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8bc257a15bc03c916183ec7c0ce08bb53cb1c6c8/victoire_door.jpg",
+url: "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e22b2566f83f447de73f203f55da0065df624269/02+I+Am+Coming+for+My+Things+copy.m4a",
 songId: 1,
 artist: {
-  name: 'Bernstein',
-  song: 'Rite',
+  name: 'I Am Coming for My Things',
+  song: 'Victoire',
   songId: 1
 }}];
 

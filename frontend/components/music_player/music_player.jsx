@@ -75,16 +75,18 @@ class ReactMusicPlayer extends React.Component {
     }
 
     setProgress(e) {
-        let target = e.target.nodeName === 'SPAN' ? e.target.parentNode : e.target;
-        let width = target.clientWidth;
-        let rect = target.getBoundingClientRect();
-        let offsetX = e.clientX - rect.left;
-        let duration = this.refs.player.duration;
-        let currentTime = (duration * offsetX) / width;
-        let progress = (currentTime * 100) / duration;
+      debugger;
+      let target = e.target.nodeName === 'SPAN' ? e.target.parentNode : e.target;
+      let width = target.clientWidth;
+      let rect = target.getBoundingClientRect();
+      let offsetX = e.clientX - rect.left;
+      let duration = this.refs.player.duration;
+      let currentTime = (duration * offsetX) / width;
+      let progress = (currentTime * 100) / duration;
 
-        this.setState({ progress: progress});
-        this.play();
+      this.refs.player.currentTime = currentTime;
+      this.setState({ progress: progress});
+      this.play();
     }
 
     updateProgress() {
@@ -110,7 +112,12 @@ class ReactMusicPlayer extends React.Component {
     }
 
     end() {
-      this.setState({ playing: false });
+      if (this.state.repeat) {
+        this.play()
+      } else {
+        this.setState({play: false});
+        this.next();
+      }
     }
 
     next() {

@@ -24,6 +24,24 @@ class User < ApplicationRecord
 
   has_many :playlists
 
+  # the users followers
+  has_many :follower_associations,
+  foreign_key: :followee_id,
+  class_name: :UserFollow
+
+  # the users this user is following
+  has_many :followee_associations,
+  foreign_key: :follower_id,
+  class_name: :UserFollow
+
+  has_many :followers,
+  through: :follower_associations,
+  source: :follower
+
+  has_many :followees,
+  through: :followee_associations,
+  source: :followee
+
   has_many :follows,
   primary_key: :id,
   foreign_key: :follower_id,

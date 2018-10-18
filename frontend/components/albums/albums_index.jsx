@@ -14,16 +14,16 @@ class AlbumsIndex extends React.Component {
   componentDidMount () {
     if (this.props.searchQuery) {
       this.props.fetchAlbums({search_query: this.props.searchQuery})
-        .then( () => this.setState({loading: false}));
+      .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.albumIds && this.props.albumIds.length === 0) {
       this.props.fetchAlbums({album_ids: "NoAlbumsHere"})
-        .then( () => this.setState({loading: false}));
+      .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.albumIds) {
       this.props.fetchAlbums({album_ids: this.props.albumIds})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else {
       this.props.fetchAlbums()
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
 
     document.getElementById('main-content-2').style.backgroundImage =
@@ -33,7 +33,7 @@ class AlbumsIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
       this.props.fetchAlbums({search_query: newProps.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
   }
 

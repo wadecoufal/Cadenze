@@ -1,24 +1,31 @@
 import React from 'react';
 import SongIndexItem from './song_index_item';
-
+import { ScaleLoader } from 'react-spinners';
 
 class SongsIndex extends React.Component {
 
   constructor(props) {
     super(props);
     this.addToQueue = this.addToQueue.bind(this);
+    this.state = {
+      loading: true
+    }
   }
 
   componentDidMount() {
 
     if (this.props.searchQuery) {
-      this.props.fetchSongs({search_query: this.props.searchQuery});
+      this.props.fetchSongs({search_query: this.props.searchQuery})
+        .then( () => this.setState({loading: false}));
     } else if (this.props.songIds && this.props.songIds.length === 0) {
-      this.props.fetchSongs({song_ids: "NoSongsHere"});
+      this.props.fetchSongs({song_ids: "NoSongsHere"})
+        .then( () => this.setState({loading: false}));
     } else if (this.props.songIds) {
-      this.props.fetchSongs({song_ids: this.props.songIds});
+      this.props.fetchSongs({song_ids: this.props.songIds})
+        .then( () => this.setState({loading: false}));
     } else {
-      this.props.fetchSongs();
+      this.props.fetchSongs()
+        .then( () => this.setState({loading: false}));
     }
 
     document.getElementById('main-content-2').style.backgroundImage =
@@ -27,7 +34,8 @@ class SongsIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
-      this.props.fetchSongs({search_query: newProps.searchQuery});
+      this.props.fetchSongs({search_query: newProps.searchQuery})
+        .then( () => this.setState({loading: false}));
     }
   }
 
@@ -75,6 +83,21 @@ class SongsIndex extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <div className='sweet-loading'>
+        <ScaleLoader
+          sizeUnit={"px"}
+          height={150}
+          width={7}
+          size={150}
+          color={'#1db954'}
+          loading={this.state.loading}
+        />
+      </div>
+      )
+    }
+
     this.formatDuration()
 
     const songs = this.props.songs ? (

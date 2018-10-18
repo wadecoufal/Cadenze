@@ -13,13 +13,17 @@ class AlbumsIndex extends React.Component {
 
   componentDidMount () {
     if (this.props.searchQuery) {
-      this.props.fetchAlbums({search_query: this.props.searchQuery});
+      this.props.fetchAlbums({search_query: this.props.searchQuery})
+        .then( () => this.setState({loading: false}));
     } else if (this.props.albumIds && this.props.albumIds.length === 0) {
-      this.props.fetchAlbums({album_ids: "NoAlbumsHere"});
+      this.props.fetchAlbums({album_ids: "NoAlbumsHere"})
+        .then( () => this.setState({loading: false}));
     } else if (this.props.albumIds) {
-      this.props.fetchAlbums({album_ids: this.props.albumIds});
+      this.props.fetchAlbums({album_ids: this.props.albumIds})
+        .then( () => this.setState({loading: false}));
     } else {
-      this.props.fetchAlbums();
+      this.props.fetchAlbums()
+        .then( () => this.setState({loading: false}));
     }
 
     document.getElementById('main-content-2').style.backgroundImage =
@@ -28,7 +32,8 @@ class AlbumsIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
-      this.props.fetchAlbums({search_query: newProps.searchQuery}).then( () => this.setState({loading: false});
+      this.props.fetchAlbums({search_query: newProps.searchQuery})
+        .then( () => this.setState({loading: false}));
     }
   }
 
@@ -37,9 +42,12 @@ class AlbumsIndex extends React.Component {
       return (
         <div className='sweet-loading'>
         <ScaleLoader
+
           sizeUnit={"px"}
+          height={150}
+          width={7}
           size={150}
-          color={'#123abc'}
+          color={'#1db954'}
           loading={this.state.loading}
         />
       </div>

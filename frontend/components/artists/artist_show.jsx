@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import AlbumsIndexContainer from '../albums/albums_index_container';
 import SongsIndexContainer from '../songs/songs_index_container';
 import { fetchArtist } from '../../actions/artist_actions';
+import { ScaleLoader } from 'react-spinners';
 
 import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
@@ -26,6 +27,10 @@ class ArtistShow extends React.Component {
     }
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
+    this.state = {
+      loading: true,
+      followers: '367,892'
+    }
   }
 
   componentDidMount() {
@@ -67,10 +72,20 @@ class ArtistShow extends React.Component {
     })
   }
 
-
   render() {
     if (this.state.loading) {
-      return null;
+      return (
+        <div className='sweet-loading'>
+        <ScaleLoader
+          sizeUnit={"px"}
+          height={150}
+          width={7}
+          size={150}
+          color={'#1db954'}
+          loading={this.state.loading}
+        />
+      </div>
+      )
     }
 
     const followBtn = this.userFollowingArtist() ? (
@@ -91,9 +106,10 @@ class ArtistShow extends React.Component {
         <div className="artist-show-header">
           <div className="artist-image-name-container">
             <img src={this.props.artist.photoUrl} className="artist-show-image"></img>
-            <div>
+            <div className="artist-name-follow-button-container" >
               <h1>{this.props.artist.name}</h1>
               { followBtn }
+              <h6>{this.state.followers} MONTHLY LISTENERS</h6>
             </div>
           </div>
         </div>

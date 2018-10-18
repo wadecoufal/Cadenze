@@ -63,25 +63,25 @@
   opacity: 0.7;
 }
 
-.artist-img-overlay {
-  max-height: 100%;
-  max-width: 100%;
-  width: 38%;
-  height: 38%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  transition: 0.25s
-}
-
-.artist-img-overlay:hover {
-  width: 44%;
-  height: 44%;
-  transition: 0.25s;
-}
+// .artist-img-overlay {
+//   max-height: 100%;
+//   max-width: 100%;
+//   width: 38%;
+//   height: 38%;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   transition: 0.25s
+// }
+//
+// .artist-img-overlay:hover {
+//   width: 44%;
+//   height: 44%;
+//   transition: 0.25s;
+// }
 
 .artist-show-header {
   height: 380px;
@@ -94,10 +94,14 @@
 }
 
 .artists-albums {
-
   color: white;
   font-size: 42px;
+}
 
+.artists-songs h1 {
+  color: white;
+  font-size: 42px;
+  padding-left: 62px;
 }
 
 .artist-image-name-container {
@@ -120,4 +124,16 @@
 
 .artist-image-name-container div button {
   width: 250px;
+}
+
+.artist-name-follow-button-container {
+  padding-top: 80px;
+}
+
+.artist-name-follow-button-container h6 {
+  font-weight: 100;
+  font-size: 13px;
+  color: white;
+  opacity: 0.7;
+  text-align: center;
 }

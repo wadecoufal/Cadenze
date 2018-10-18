@@ -26,7 +26,7 @@ class PlaylistsIndex extends React.Component {
         .then( () => this.setState({loading: false}));
     }
     document.getElementById('main-content-2').style.backgroundImage =
-      'linear-gradient(rgb(4, 180, 44), rgb(9, 10, 10))'
+      'linear-gradient(#8e2500, #26004c)'
   }
 
   componentWillReceiveProps(newProps) {

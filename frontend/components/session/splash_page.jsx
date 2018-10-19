@@ -21,12 +21,12 @@ class SplashPage extends React.Component {
           </div>
 
           <nav className="splash-session-buttons">
-            <Link
+            <a
               className="splash-session-link contact"
-              to="https://github.com/wadecoufal">Github</Link>
-            <Link
+              href="https://github.com/wadecoufal">Github</a>
+            <a
               className="splash-session-link contact"
-              to="https://www.linkedin.com/in/wade-coufal/">LinkedIn</Link>
+              href="https://www.linkedin.com/in/wade-coufal/">LinkedIn</a>
 
             <p className="separator">|</p>
 

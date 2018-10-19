@@ -2,6 +2,8 @@
 
 A desktop music player highlighting the artistry of world class singers, composers, pianists, and other classical musicians.
 
+Check it out [here](https://cadenze.herokuapp.com/#/)!
+
 ![alt-text](https://github.com/wadecoufal/Cadenze/blob/master/DemoImage.png)
 
 
@@ -16,19 +18,17 @@ The back-end of Cadenze was built using Ruby on Rails and PostgreSQL, with image
 
 Save your favorite music to custom playlists. Add a song to any playlist quick and simply: click on a song, see all your playlists pop-up, and click on the one you want to add the song to.
 
-Create Playlist
 
 ![alt-text](https://github.com/wadecoufal/Cadenze/blob/master/CreatePlaylistImg.png)
 
 
-Add Song to Playlist
 
-https://github.com/wadecoufal/Cadenze/blob/master/AddingToPlaylistImg.png
+![alt-text](https://github.com/wadecoufal/Cadenze/blob/master/AddingToPlaylistImg.png)
 
 
 ### Search
 
-Search for your favorite album, artist, song, and playlist with the search feature. Results are dynamically rendered thanks to React.
+Search for your favorite album, artist, song, and playlist with the search feature. Results are dynamically rendered thanks to React. As soon as a user starts typing, an ajax request grabs the results that match the current query and React dynamically renders the results to the page. As the user continues to type, the results are updated accordingly.
 
 ![alt-text](https://github.com/wadecoufal/Cadenze/blob/master/SearchImg.png)
 
@@ -36,6 +36,10 @@ Search for your favorite album, artist, song, and playlist with the search featu
 
 Listen to music while you browse! Check out your favorite artists and albums without breaking up the music. You can also shuffle, loop, and skip songs with ease.
 
+React and Redux were crucial in creating this smooth experience. As a user clicks a song, Redux updates the song queue, and React handles playing the next song. The music player is a top-level React component, allowing it to stream music, unaffected by the rest of the page.
+
 ### Favoriting and Following
 
 In addition to creating custom playlists, you can also follow artists, albums, and songs. Check them out in your collection!
+
+![alt-text](https://github.com/wadecoufal/Cadenze/blob/master/CollectionImg.png)

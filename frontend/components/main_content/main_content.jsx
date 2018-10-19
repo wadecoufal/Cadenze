@@ -11,6 +11,7 @@ import Modal from '../modal';
 import AlbumShow from '../albums/album_show';
 import PlaylistShow from '../playlists/playlist_show';
 import ArtistShow from '../artists/artist_show';
+import UserShow from '../users/user_show';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -39,6 +40,7 @@ class MainContent extends React.Component {
               <Route path="/album/:albumId" component={AlbumShow} />
               <Route path="/playlist/:playlistId" component={PlaylistShow} />
               <Route path="/artist/:artistId" component={ArtistShow} />
+              <Route path="/user/:userId" component={UserShow} />
               <Redirect to="/browse/albums" />
             </Switch>
           </div>

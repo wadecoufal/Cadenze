@@ -45,6 +45,12 @@ export const logout = () => dispatch => {
     .then( () => dispatch(logoutCurrentUser()))
 };
 
+export const fetchUser = id => dispatch => {
+  return SessionApiUtil.logout()
+    .then( user => dispatch(receiveCurrentUser(user)),
+            err => console.log(err.responseJSON))
+}
+
 export const demoLogin = () => dispatch => {
   const demoUserNumber = Math.floor(Math.random() * 10);
   const demoUsername = `Guest${demoUserNumber}`;

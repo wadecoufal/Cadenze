@@ -10,6 +10,10 @@ Album.destroy_all
 Song.destroy_all
 Artist.destroy_all
 User.destroy_all
+Playlist.destroy_all
+Follow.destroy_all
+UserFollow.destroy_all
+PlaylistSong.destroy_all
 
 def create_album(params, filename)
   album = Album.new(params)

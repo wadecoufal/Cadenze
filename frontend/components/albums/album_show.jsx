@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import SongsIndexContainer from '../songs/songs_index_container';
 import { fetchAlbum } from '../../actions/album_actions';
 
@@ -90,7 +90,7 @@ class AlbumShow extends React.Component {
           <img className="collection-image" src={this.props.album.photoUrl}></img>
           <div className="collection-info">
             <h3>{this.props.album.title}</h3>
-            <h6>{this.props.album.artistName}</h6>
+            <Link className="collection-artist-info-link" to={`/artist/${this.props.album.artistId}`}>{this.props.album.artistName}</Link>
             {favoriteBtn}
           </div>
         </div>

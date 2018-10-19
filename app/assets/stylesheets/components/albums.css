@@ -124,6 +124,12 @@
   margin-top: 10px;
 }
 
+.collection-artist-info-link {
+  color: rgb(162, 167, 180);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 .artists-albums h1 {
   padding-left: 62px;
   margin-top: 44px;

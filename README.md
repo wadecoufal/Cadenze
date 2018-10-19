@@ -1,24 +1,4 @@
-# README
+# Cadenze
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A desktop music player highlighting the artistry of world class singers, composers, pianists, and other classical musicians.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

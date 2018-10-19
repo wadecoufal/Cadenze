@@ -40,6 +40,11 @@ class PlaylistSongForm extends React.Component {
     this.props.fetchPlaylists({curr_user_id: this.props.currUserId});
   }
 
+  titleInitials(title) {
+    return title.split(' ')
+      .map( word => word[0].toUpperCase()).join('')
+  }
+
   render() {
     return (
       <div className="playlist-song-form">
@@ -61,7 +66,9 @@ class PlaylistSongForm extends React.Component {
                   <div className="collection-index-item">
 
                     <div className="collection-image-container">
-                      <img className="collection-img"></img>
+                      <div className="playlist-img">
+                        <h4 className="playlist-img-title">{this.titleInitials(playlist.title)}</h4>
+                      </div>
                       <div className="image-overlay">
                         <img className='collection-img-overlay' src={window.playBtn}></img>
                       </div>

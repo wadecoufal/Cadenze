@@ -54,7 +54,7 @@ class AlbumsIndex extends React.Component {
       )
     }
 
-    const albums = this.props.albums ? (
+    const albums = this.props.albums.length > 0 ? (
       <ul className="item-rows" >
         {this.props.albums.map( album => {
           return (
@@ -63,8 +63,8 @@ class AlbumsIndex extends React.Component {
         })}
       </ul>
     ) : (
-      <div>
-        No albums to see here
+      <div className="no-results">
+        Nothing to see here...
       </div>
     )
 

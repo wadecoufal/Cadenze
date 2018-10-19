@@ -66,8 +66,8 @@ class PlaylistForm extends React.Component {
           <button
             onClick={this.props.closeModal}
             className="cancel-btn"
-            >Cancel</button>
-          <button onClick={this.handleSubmit}>Create</button>
+            >CANCEL</button>
+          <button className="create-playlist-btn" onClick={this.handleSubmit}>CREATE</button>
         </div>
       </div>
     )

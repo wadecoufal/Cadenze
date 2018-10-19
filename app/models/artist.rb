@@ -11,9 +11,7 @@
 
 class Artist < ApplicationRecord
   validates :name, :bio, presence: true
-
   has_one_attached :photo
-  has_one_attached :header_photo
 
   has_many :albums
 

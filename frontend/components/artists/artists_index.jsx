@@ -14,16 +14,16 @@ class ArtistsIndex extends React.Component {
   componentDidMount() {
     if (this.props.searchQuery) {
       this.props.fetchArtists({search_query: this.props.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }else if (this.props.followedArtistIds && this.props.followedArtistIds.length === 0) {
       this.props.fetchArtists({followed_artist_ids: "NoArtistsHere"})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.followedArtistIds) {
       this.props.fetchArtists({followed_artist_ids: this.props.followedArtistIds})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else {
       this.props.fetchArtists()
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
 
     document.getElementById('main-content-2').style.backgroundImage =
@@ -33,7 +33,7 @@ class ArtistsIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
       this.props.fetchArtists({search_query: newProps.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
   }
 
@@ -53,7 +53,7 @@ class ArtistsIndex extends React.Component {
       )
     }
 
-    const artists = this.props.artists ? (
+    const artists = this.props.artists.length > 0 ? (
       <ul className="artist-rows">
         {this.props.artists.map( artist => {
           return (
@@ -62,8 +62,8 @@ class ArtistsIndex extends React.Component {
         })}
       </ul>
     ) : (
-      <div>
-        No artists to see here
+      <div className="no-results">
+        Nothing to see here...
       </div>
     )
 

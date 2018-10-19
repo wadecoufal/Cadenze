@@ -14,16 +14,18 @@ class PlaylistsIndex extends React.Component {
   componentDidMount() {
     if (this.props.searchQuery) {
       this.props.fetchPlaylists({search_query: this.props.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.followedPlaylistIds && this.props.followedPlaylistIds.length === 0) {
       this.props.fetchPlaylists({followed_playlist_ids: "NoPlaylistsHere",
-      curr_user_id: this.props.currUserId}).then( () => this.setState({loading: false}));
+      curr_user_id: this.props.currUserId})
+      .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.followedPlaylistIds) {
       this.props.fetchPlaylists({followed_playlist_ids: this.props.followedPlaylistIds,
-      curr_user_id: this.props.currUserId}).then( () => this.setState({loading: false}));
+      curr_user_id: this.props.currUserId})
+      .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else {
       this.props.fetchPlaylists()
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(#8e2500, #26004c)'
@@ -32,7 +34,7 @@ class PlaylistsIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
       this.props.fetchPlaylists({search_query: newProps.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
   }
 
@@ -52,7 +54,7 @@ class PlaylistsIndex extends React.Component {
       )
     }
 
-    const playlists = this.props.playlists ? (
+    const playlists = this.props.playlists.length > 0 ? (
       <ul className="item-rows" >
         {this.props.playlists.map( playlist => {
           return (
@@ -61,8 +63,8 @@ class PlaylistsIndex extends React.Component {
         })}
       </ul>
     ) : (
-      <div>
-        No playlists to see here
+      <div className="no-results">
+        Nothing to see here...
       </div>
     )
 

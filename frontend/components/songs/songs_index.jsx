@@ -16,16 +16,16 @@ class SongsIndex extends React.Component {
 
     if (this.props.searchQuery) {
       this.props.fetchSongs({search_query: this.props.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.songIds && this.props.songIds.length === 0) {
       this.props.fetchSongs({song_ids: "NoSongsHere"})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else if (this.props.songIds) {
       this.props.fetchSongs({song_ids: this.props.songIds})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else {
       this.props.fetchSongs()
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
 
     document.getElementById('main-content-2').style.backgroundImage =
@@ -35,7 +35,7 @@ class SongsIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.searchQuery != this.props.searchQuery) {
       this.props.fetchSongs({search_query: newProps.searchQuery})
-        .then( () => this.setState({loading: false}));
+        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
   }
 
@@ -100,7 +100,7 @@ class SongsIndex extends React.Component {
 
     this.formatDuration()
 
-    const songs = this.props.songs ? (
+    const songs = this.props.songs.length > 0 ? (
       <ul className="song-rows" >
         {this.props.songs.map( song => {
           return (
@@ -113,8 +113,8 @@ class SongsIndex extends React.Component {
         })}
       </ul>
     ) : (
-      <div>
-        No songs to see here
+      <div className="no-results">
+        Nothing to see here...
       </div>
     )
 

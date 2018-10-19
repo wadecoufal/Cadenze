@@ -40,7 +40,6 @@ class MainContent extends React.Component {
               <Route path="/album/:albumId" component={AlbumShow} />
               <Route path="/playlist/:playlistId" component={PlaylistShow} />
               <Route path="/artist/:artistId" component={ArtistShow} />
-              <Route path="/user/:userId" component={UserShow} />
               <Redirect to="/browse/albums" />
             </Switch>
           </div>

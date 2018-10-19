@@ -80,6 +80,7 @@
 
 .collection-image-container:hover .image-overlay {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .collection-img-overlay {

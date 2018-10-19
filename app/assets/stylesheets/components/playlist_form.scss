@@ -68,6 +68,7 @@
     width: 140px;
     display: inline-block;
     margin: 7px;
+    font-weight: 400;
   }
 
   .cancel-btn {
@@ -89,4 +90,14 @@
 
 .user-playlists {
   justify-content: center;
+}
+
+.create-playlist-btn {
+  transition: 0.2s;
+}
+
+.create-playlist-btn:hover {
+  color: #e023ca;
+  background-color: white;
+  transition: 0.2s;
 }

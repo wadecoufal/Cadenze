@@ -23,13 +23,11 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchUser(this.props.match.params.userId)
       .then( () => this.setState({loading: false }))
   }
 
   render() {
-    debugger;
     if (this.state.loading) {
       return null;
     }

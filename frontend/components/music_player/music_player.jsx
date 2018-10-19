@@ -75,7 +75,6 @@ class ReactMusicPlayer extends React.Component {
     }
 
     setProgress(e) {
-      debugger;
       let target = e.target.nodeName === 'SPAN' ? e.target.parentNode : e.target;
       let width = target.clientWidth;
       let rect = target.getBoundingClientRect();
@@ -90,11 +89,11 @@ class ReactMusicPlayer extends React.Component {
     }
 
     updateProgress() {
-        let duration = this.refs.player.duration;
-        let currentTime = this.refs.player.currentTime;
-        let progress = (currentTime * 100) / duration;
+      let duration = this.refs.player.duration;
+      let currentTime = this.refs.player.currentTime;
+      let progress = (currentTime * 100) / duration;
 
-        this.setState({ progress: progress });
+      this.setState({ progress: progress });
     }
 
     play() {

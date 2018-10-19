@@ -19,10 +19,9 @@ def create_album(params, filename)
   return album
 end
 
-def create_artist(params, headshot, header)
+def create_artist(params, headshot)
   artist = Artist.new(params)
   headshot_file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{headshot}")
-  header_file = EzDownload.open("https://s3-us-west-1.amazonaws.com/cadenze-dev/#{header}")
   artist.photo.attach(io: headshot_file, filename: headshot)
   artist.save
   return artist

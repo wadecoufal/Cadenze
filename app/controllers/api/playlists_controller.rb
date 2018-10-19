@@ -2,13 +2,12 @@ class Api::PlaylistsController < ApplicationController
   def index
     if params[:search_query]
       @playlists = Playlist.where('title LIKE ? OR title LIKE ?', "% #{params[:search_query].capitalize}%", "#{params[:search_query].capitalize}%")
-    elsif params[:followed_playlist_ids] === 'NoPlaylistsHere'
+    elsif params[:followed_playlist_ids] == 'NoPlaylistsHere'
       @playlists = Playlist.where(user_id: params[:curr_user_id])
     elsif params[:followed_playlist_ids]
-      @playlists = Playlist.where('id IN (?) OR user_id = ?',
-          params[:followed_playlist_ids], params[:curr_user_id])
+      @playlists = Playlist.where('id IN (?) OR user_id = ?', params[:followed_playlist_ids], params[:curr_user_id])
     else
-      @playlists = Playlist.all.includes(:songs)
+      @playlists = Playlist.all
     end
   end
 

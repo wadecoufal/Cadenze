@@ -24,8 +24,7 @@ class PlaylistsIndex extends React.Component {
       curr_user_id: this.props.currUserId})
       .then( () => setTimeout(() => this.setState({loading: false}), 1000));
     } else {
-      this.props.fetchPlaylists()
-        .then( () => setTimeout(() => this.setState({loading: false}), 1000));
+      this.props.fetchPlaylists().then( () => setTimeout(() => this.setState({loading: false}), 1000));
     }
     document.getElementById('main-content-2').style.backgroundImage =
       'linear-gradient(#8e2500, #26004c)'

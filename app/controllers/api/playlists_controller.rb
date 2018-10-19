@@ -7,7 +7,14 @@ class Api::PlaylistsController < ApplicationController
     elsif params[:followed_playlist_ids]
       @playlists = Playlist.where('id IN (?) OR user_id = ?', params[:followed_playlist_ids], params[:curr_user_id])
     else
-      @playlists = Playlist.all
+      # not sure what to do here. works locally, throws an Internal Server Error on heroku...
+      # debugger
+      @playlists = Playlist.all.includes(:user)
+      if @playlists.empty?
+        render json: {}
+      else
+        render :index
+      end
     end
   end
 

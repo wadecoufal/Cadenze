@@ -21,11 +21,11 @@ class SongIndexItem extends React.Component {
       <div className="song-index-item">
 
         <div className="play-btn-music-note">
-        <button className="song-item-play-btn" onClick={() => this.props.addToQueue(song.id)}>
-          <img className="play-btn" src={window.playBtn}></img>
-        </button>
-        <i className="music-note fab fa-itunes-note"></i>
-      </div>
+          <button className="song-item-play-btn" onClick={() => this.props.addToQueue(song.id)}>
+            <img className="play-btn" src={window.playBtn}></img>
+          </button>
+          <i className="music-note fab fa-itunes-note"></i>
+        </div>
 
 
         <div className="song-info">

@@ -8,7 +8,7 @@ class Api::PlaylistsController < ApplicationController
       @playlists = Playlist.where('id IN (?) OR user_id = ?',
           params[:followed_playlist_ids], params[:curr_user_id])
     else
-      @playlists = Playlist.all.includes(:songs).includes(:user)
+      @playlists = Playlist.all.includes(:songs)
     end
   end
 

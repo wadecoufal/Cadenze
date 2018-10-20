@@ -1,6 +1,6 @@
 # Cadenze
 
-A desktop music player highlighting the artistry of world class singers, composers, pianists, and other classical musicians.
+A music player highlighting the artistry of world class singers, composers, pianists, and other classical musicians.
 
 Check it out [here](https://cadenze.herokuapp.com/#/)!
 

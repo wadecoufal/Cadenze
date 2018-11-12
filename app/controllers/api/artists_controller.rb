@@ -1,7 +1,8 @@
 class Api::ArtistsController < ApplicationController
   def index
     if params[:search_query]
-      @artists = Artist.where('name LIKE ? OR name LIKE ?', "% #{params[:search_query].capitalize}%", "#{params[:search_query].capitalize}%")
+      @artists = Artist.where('lower(name) LIKE ? OR lower(name) LIKE ?', 
+      "% #{params[:search_query].downcase}%", "#{params[:search_query].downcase}%")
     elsif params[:followed_artist_ids] === 'NoArtistsHere'
       @artists = []
     elsif params[:followed_artist_ids]

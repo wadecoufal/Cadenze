@@ -1,7 +1,8 @@
 class Api::AlbumsController < ApplicationController
   def index
     if params[:search_query]
-      @albums = Album.where('title LIKE ? OR title LIKE ?', "% #{params[:search_query].capitalize}%", "#{params[:search_query].capitalize}%")
+      @albums = Album.where('lower(title) LIKE ? OR lower(title) LIKE ?', 
+      "% #{params[:search_query].downcase}%", "#{params[:search_query].downcase}%")
     elsif params[:album_ids] === 'NoAlbumsHere'
       @albums = []
     elsif params[:album_ids]

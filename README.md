@@ -42,4 +42,30 @@ React and Redux were crucial in creating this smooth experience. As a user click
 
 In addition to creating custom playlists, you can also follow artists, albums, and songs. Check them out in your collection!
 
+```
+<div className="collection">
+        <Navbar page={page} />
+        <Switch>
+          <Route path="/collection/albums" render={ () =>
+              <AlbumsIndexContainer
+                albumIds={favoritedAlbumIds} /> } />
+
+            <Route path="/collection/artists" render={ () =>
+                <ArtistsIndexContainer
+                  followedArtistIds={followedArtistIds} /> } />
+
+          <Route path="/collection/playlists" render={ () =>
+              <PlaylistsIndexContainer
+                currUserId={this.props.currUserId}
+                followedPlaylistIds={followedPlaylistIds}/> } />
+
+          <Route path="/collection/songs" render={ () =>
+              <SongsIndexContainer
+                songIds={favoritedSongIds}/> } />
+
+          <Redirect to="/collection/albums" />
+        </Switch>
+      </div>
+```
+
 ![alt-text](https://github.com/wadecoufal/Cadenze/blob/master/CollectionImg.png)

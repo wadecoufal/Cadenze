@@ -23,7 +23,6 @@ class PlaylistIndexItem extends React.Component {
             <h4 className="playlist-img-title">{this.titleInitials()}</h4>
           </div>
           <div className="image-overlay">
-            <img className='collection-img-overlay' src={window.playBtn}></img>
           </div>
         </div>
 

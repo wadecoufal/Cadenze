@@ -22,8 +22,3 @@ export const fetchAlbum = id => dispatch => {
   return AlbumApiUtil.fetchAlbum(id)
     .then(album => dispatch(receiveAlbum(album)))
 };
-
-// export const fetchAlbum = id => dispatch => {
-//   return AlbumApiUtil.fetchAlbum(id)
-//     .then(album => dispatch(receiveAlbums([album])))
-// }
